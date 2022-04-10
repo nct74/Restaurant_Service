@@ -7,6 +7,10 @@ export class UserController {
 	@Get()
 	@Render("admin/user/index")
 	async index() {
-		return ;
+		const userList = await this.userService.getAll();
+		console.log(userList);
+		return {
+			userList: userList
+		};
 	}
 }

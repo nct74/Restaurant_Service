@@ -21,9 +21,4 @@ export class Order {
 
 	@UpdateDateColumn()
 	updateAt: Date;
-
-	@OneToOne(() => Payment)
-	@JoinColumn()
-	payment: Payment;
-
 }

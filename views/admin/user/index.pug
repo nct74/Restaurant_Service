@@ -50,32 +50,38 @@ block content
                                     button.btn.btn-secondary(type='button' data-dismiss='modal') Đóng lại
                                     button.btn.btn-primary(type='submit') Thêm mới
 
-                //- table#tab-users.table.table-bordered.table-striped
-                //-     thead
-                //-         tr.text-center
-                //-             //- th Số thứ tự
-                //-             th STT
-                //-             th Tên đăng nhập
-                //-             th Vai trò người dùng
-                //-             th Cập nhật lần cuối
-                //-             th Thao tác
-                //-     tbody
-                //-         //- - var index = 1; 
-                //-         each user, index in userList
-                //-             tr.text-center
-                //-                 //- td= index++
-                //-                 td=index + 1
-                //-                 td=user.email
-                //-                 if user.role==UserRole.ADMIN
-                //-                   td= "Admin"
-                //-                 else if user.role==UserRole.LIBRARIAN
-                //-                   td= "Người trực thư viện"
-                //-                 td=moment(user.updatedAt).fromNow()
-                //-                 td.text-center
-                //-                     btn.btn-edit.btn.btn-primary.btn-xs(style="margin-right: 5px", data-email=user.email, data-password=user.password, data-role=user.role)
-                //-                         i.fas.fa-edit
-                //-                     btn.btn-delete.btn.btn-danger.btn-xs(style="margin-right: 5px", data-email=user.email)
-                //-                         i.fas.fa-trash
+                table#tab-users.table.table-bordered.table-striped
+                    thead
+                        tr.text-center
+                            //- th Số thứ tự
+                            th STT
+                            th Tên đăng nhập
+                            th CCCD/CMND
+                            th Vai trò người dùng
+                            th Cập nhật lần cuối
+                            th Thao tác
+                    tbody
+                        //- - var index = 1; 
+                        each user, index in userList
+                            tr.text-center
+                                //- td= index++
+                                td=index + 1
+                                td=user.username
+                                td=user.cccd
+                                if user.role==0
+                                  td='Nhân viên'
+                                else if user.role == 1
+                                  td='Quản trị viên'
+                                //- if user.role==UserRole.ADMIN
+                                //-   td= "Admin"
+                                //- else if user.role==UserRole.LIBRARIAN
+                                //-   td= "Người trực thư viện"
+                                td=moment(user.updatedAt).fromNow()
+                                td.text-center
+                                    btn.btn-edit.btn.btn-primary.btn-xs(style="margin-right: 5px", data-email=user.email, data-password=user.password, data-role=user.role)
+                                        i.fas.fa-edit
+                                    btn.btn-delete.btn.btn-danger.btn-xs(style="margin-right: 5px", data-email=user.email)
+                                        i.fas.fa-trash
                 
                 //- #EditUserModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='EditUserModal' aria-hidden='true')
                 //-     .modal-dialog(role='document')
@@ -125,4 +131,4 @@ block content
     // /.content
   // /.content-wrapper
 block script 
-  //- script(src="/js/user/index.js")
+  script(src="/js/admin/user/index.js")
