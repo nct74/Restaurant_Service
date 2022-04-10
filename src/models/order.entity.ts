@@ -22,11 +22,6 @@ export class Order {
 	@UpdateDateColumn()
 	updateAt: Date;
 
-	@ManyToMany(() => Dish)
-	@JoinTable()
-	contain: Dish;
-
-
 	@OneToOne(() => Payment)
 	@JoinColumn()
 	payment: Payment;
