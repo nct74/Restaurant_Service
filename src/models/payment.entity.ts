@@ -1,4 +1,4 @@
-import { Column, CreateDateColumn, Entity, JoinTable, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, JoinColumn, JoinTable, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { Order } from "./order.entity";
 
 @Entity()
@@ -20,5 +20,9 @@ export class Payment {
 
 	@UpdateDateColumn()
 	updateAt: Date;
+
+	@OneToOne(() => Order)
+	@JoinColumn()
+	order: Order;
 }
 

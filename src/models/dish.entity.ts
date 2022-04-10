@@ -15,6 +15,9 @@ export class Dish {
 	info_detail: string;
 
 	@Column()
+	image: string;
+
+	@Column()
 	type: string;
 
 	@CreateDateColumn()
