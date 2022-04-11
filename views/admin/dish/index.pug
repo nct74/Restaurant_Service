@@ -1,0 +1,203 @@
+extends ../layout.pug
+
+block content
+  .content-wrapper
+    // Content Header (Page header)
+    section.content-header
+      .container-fluid
+        .row.mb-2
+          .col-sm-6
+            h1 Quản lý Thực đơn
+          .col-sm-6
+            ol.breadcrumb.float-sm-right
+              li.breadcrumb-item
+                a(href='#') Home
+              li.breadcrumb-item.active Quản lý Thực đơn
+      // /.container-fluid
+    // Main content
+    section.content
+      .container-fluid
+        .row
+          .col-12             
+            .card
+              // /.card-header
+              .card-body
+                .row
+                  .col-md-10
+                    // Button trigger modal
+                    button.btn.btn-primary.custom-button(type='button' data-toggle='modal' data-target='#addDishModal')
+                        | Thêm mới
+                  .col-md-2
+			  
+                // Modal add dish
+                #addDishModal.modal.fade(role='dialog' aria-labelledby='addDishModal' aria-hidden='true')
+                    .modal-dialog(role='document')
+                        .modal-content
+                            .modal-header
+                                h5#adddishModal.modal-title Thêm mới
+                                button.close(type='button' data-dismiss='modal' aria-label='Close')
+                                    span(aria-hidden='true') &times;
+                            form#form-add-dish(action="/dish/add", method = "post", enctype='multipart/form-data')
+                                .modal-body
+                                    .row
+                                        .col-md-6
+                                            .form-group
+                                                label Tên sản phẩm
+                                                input.form-control(type='text' placeholder='Tên sản phẩm' name='name')
+                                        .col-md-6
+                                            .form-group
+                                                .row 
+                                                label Đơn giá
+                                                input.form-control(type='number' placeholder='Đơn giá' name='price')
+                                    .row
+                                        .col-md-6
+                                            .form-group
+                                                .row 
+                                                label Loại sản phẩm
+                                                input.form-control(type='text' placeholder='Loại sản phẩm' name='type')
+                                    .row
+                                        .col-md-12
+                                            .form-group
+                                                .row 
+                                                //- label Hình ảnh minh họa
+                                                //- input.form-control(type='file' name='image')
+                                                label(for='exampleInputFile') File input
+                                                .input-group
+                                                    .custom-file
+                                                        input#exampleInputFile.custom-file-input(type='file', name="sampleFile")
+                                                        label.custom-file-label(for='exampleInputFile') Choose file
+                                                    .input-group-append
+                                                        span.input-group-text Upload
+                                    .row
+                                        .col-md-12
+                                            .form-group
+                                                .row 
+                                                label Thông tin chi tiết
+                                                input.form-control(type='text' placeholder='Thông tin chi tiết' name='info_detail')
+                                .modal-footer
+                                  button.btn.btn-primary(type='submit') Thêm mới 
+                                  button.btn.btn-secondary(type='button' data-dismiss='modal') Đóng lại
+                table#tab-dish.table.table-bordered.table-striped
+                  thead
+                    tr.text-center
+                      th STT
+                      th Tên sản phẩm
+                      th Đơn giá
+                      th Thông tin chi tiết
+                      th Loại sản phẩm
+                      th Hình ảnh minh họa
+                      th Thao tác
+                  tbody 
+                    each dish, index in dishList
+                      tr.text-center
+                        td= index + 1
+                        td= dish.name
+                        td= dish.price
+                        td= dish.info_detail
+                        td= dish.type
+                        td= dish.image
+                        td.text-center
+                        //-   btn.btn-edit.btn.btn-primary.btn-xs(style="margin-right: 5px", data-id = dish.id, data-last-name = dish.lastName, data-first-name = dish.firstName, data-email = dish.email)
+                        //-     i.fas.fa-edit
+                        //-   btn.btn-delete.btn.btn-danger.btn-xs(style="margin-right: 5px", data-id = dish.id)
+                        //-     i.fas.fa-trash
+                            
+                //- #HistorydishModal.modal.fade(role='dialog' aria-labelledby='HistorydishModal' aria-hidden='true')
+                //-     .modal-dialog(role='document')
+                //-         .modal-content
+                //-             .modal-header
+                //-                 h5.modal-title Lịch sử ra vào thư viện
+                //-                 button.close(type='button' data-dismiss='modal' aria-label='Close')
+                //-                     span(aria-hidden='true') &times;
+                //-             form
+                //-                 .modal-body
+                //-                     .row 
+                //-                         .col-md-6
+                //-                             .form-group
+                //-                                 label Họ và tên lót
+                //-                                 input.form-control(type='text' placeholder='Họ và tên lót' name = 'lastName', readonly)
+                //-                         .col-md-6
+                //-                             .form-group
+                //-                                 label Tên
+                //-                                 input.form-control(type='text' placeholder='Tên' name = 'firstName', readonly)
+                //-                     .row
+                //-                         .col-md-6
+                //-                             .form-group
+                //-                                 label Mã số SV
+                //-                                 input.form-control(type='text', name = 'id', readonly)
+                //-                         .col-md-6
+                //-                             .form-group
+                //-                                 label Tổng số lượt ra vào
+                //-                                 input.form-control(type='text', name = 'countInOut', readonly)
+                //-                     .row
+                //-                         .col-md-12
+                //-                             table#historyModal.table.table-bordered.table-striped
+                //-                               thead
+                //-                                 tr.text-center
+                //-                                   th Lượt ra vào
+                //-                                   th Thời gian
+                //-                 .modal-footer
+                //-                     button.btn.btn-secondary(type='button' data-dismiss='modal') Đóng lại
+
+                //- #EditdishModal.modal.fade(role='dialog' aria-labelledby='EditdishModal' aria-hidden='true')
+                //-     .modal-dialog(role='document')
+                //-         .modal-content
+                //-             .modal-header
+                //-                 h5.modal-title Chỉnh sửa
+                //-                 button.close(type='button' data-dismiss='modal' aria-label='Close')
+                //-                     span(aria-hidden='true') &times;
+                //-             form(action="/dish/edit",method="post") 
+                //-                 .modal-body
+                //-                     .row     
+                //-                         .col-md-6 
+                //-                             .form-group
+                //-                                 label Mã số SV
+                //-                                 input.form-control(type='text', name = 'id', readonly)
+                //-                     .row
+                //-                         .col-md-6
+                //-                             .form-group
+                //-                                 label Họ và tên lót
+                //-                                 input.form-control(type='text' placeholder='Họ và tên lót' name = 'lastName')
+                //-                         .col-md-6
+                //-                             .form-group
+                //-                                 label Tên
+                //-                                 input.form-control(type='text' placeholder='Tên' name = 'firstName')
+                //-                     .row
+                //-                         .col-md-12
+                //-                             .form-group
+                //-                                 label Email
+                //-                                 input.form-control(type='email' placeholder='Email' name = 'email')
+                //-                 .modal-footer
+                //-                     button.btn.btn-secondary(type='button' data-dismiss='modal') Đóng lại
+                //-                     button.btn.btn-primary(type='submit') Cập nhật
+
+                //- #DeletedishModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='DeletedishModal' aria-hidden='true')
+                //-     .modal-dialog(role='document')
+                //-         .modal-content.bg-danger
+                //-             .modal-header
+                //-                 h5.modal-title Xóa
+                //-                 button.close(type='button' data-dismiss='modal' aria-label='Close')
+                //-                     span(aria-hidden='true') &times;
+                //-             form(action="/dish/delete", method = "post")
+                //-                 .modal-body
+                //-                     input(type="hidden", name="id")
+                //-                     p Bạn chắc chưa ?
+                //-                 .modal-footer
+                //-                     button.btn.btn-danger.btn-outline-light(type='button' data-dismiss='modal') Đóng lại
+                //-                     button.btn.btn-danger.btn-outline-light(type='submit') Xác nhận
+              // /.card-body
+            // /.card
+          // /.col
+        // /.row
+      // /.container-fluid
+    // /.content
+  // /.content-wrapper
+
+block style 
+    link(rel="stylesheet", href="/plugins/select2/css/select2.min.css")
+    link(rel="stylesheet", href="/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css")
+    //- link(rel="stylesheet", href="/plugins/custom/custom.css")
+block script 
+    script(src="/plugins/select2/js/select2.full.min.js")
+    script(src="/js/admin/dish/index.js")
+    script(src='/plugins/bs-custom-file-input/bs-custom-file-input.min.js')

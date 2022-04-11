@@ -36,7 +36,7 @@ head
   // Main Sidebar Container
   aside.main-sidebar.sidebar-dark-primary.elevation-4
     // Brand Logo
-    a.brand-link(href='/')
+    a.brand-link(href='/dish')
       img.brand-image.img-circle.elevation-3(src='/dist/img/logo-CSE.png' alt='CSE Logo' style='opacity: .8')
       span.brand-text.font-weight-light HCMUT CSE
     // Sidebar
@@ -46,7 +46,7 @@ head
         .image
           img.img-circle.elevation-2(src='/dist/img/Logo_POS.jpg' alt='Library logo')
         .info
-          a.d-block(href='/') Restaurant P.O.S
+          a.d-block(href='/dish') Restaurant P.O.S
       // Sidebar Menu
       nav.mt-2
         ul.nav.nav-pills.nav-sidebar.flex-column(data-widget='treeview' role='menu' data-accordion='false')
@@ -54,13 +54,12 @@ head
             Add icons to the links using the .nav-icon class
             with font-awesome or any other icon font library
           li.nav-item
-            a.nav-link(href='/')
+            a.nav-link(href='/dish')
               i.nav-icon.fas.fa-utensils
-              //- Sửa logo tại đây (Dấu cách thành dấu chấm)
               p
                 | Quản lý Thực đơn
           li.nav-item
-            a.nav-link(href='')
+            a.nav-link(href='/order')
               i.nav-icon.fas.fa-receipt
               p
                 | Thông tin Đơn hàng
@@ -80,7 +79,7 @@ head
             //-       i.far.fa-circle.nav-icon
             //-       p Tần suất ra vào theo tuần theo tháng
           li.nav-item
-            a.nav-link(href='/')
+            a.nav-link(href='/user')
               i.nav-icon.fas.fa-users-cog
               p
                 | Quản lý Người dùng
@@ -128,27 +127,3 @@ script(src='/plugins/datatables-buttons/js/buttons.colVis.min.js')
 // AdminLTE App
 script(src='/dist/js/adminlte.min.js')
 block script
-//-script(src='/js/faculty.js') 
-
-
-
-//- Link sang file js custom
-//- // AdminLTE for demo purposes
-//- script(src='/dist/js/demo.js')
-//- // Page specific script
-//- script.
-//-   $(function () {
-//-   $("#example1").DataTable({
-//-   "responsive": true, "lengthChange": false, "autoWidth": false,
-//-   "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-//-   }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-//-   $('#example2').DataTable({
-//-   "paging": true,
-//-   "lengthChange": false,
-//-   "searching": false,
-//-   "ordering": true,
-//-   "info": true,
-//-   "autoWidth": false,
-//-   "responsive": true,
-//-   });
-//-   });
