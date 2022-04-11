@@ -35,8 +35,11 @@ block content
                             form(action="/user/add", method = "post") 
                                 .modal-body
                                     .form-group
-                                        label Tên đăng nhập || Email
-                                        input.form-control(type='text' placeholder='Email' name='email')
+                                        label Tên đăng nhập || Username
+                                        input.form-control(type='text' placeholder='Email' name='username')
+                                    .form-group
+                                        label CCCD/CMND
+                                        input.form-control(type='number' placeholder='CCCD/CMND' name='cccd')
                                     .form-group
                                         label Mật khẩu
                                         input.form-control(type='password' placeholder='Mật khẩu' name='password')
@@ -44,8 +47,8 @@ block content
                                         label Vai trò trên hệ thống 
                                         select#sel-role.form-control.select2(name="role", style="width: 100%;", required)
                                             option
-                                            option(value=0) Admin
-                                            option(value=1) Người trực thư viện
+                                            option(value=0) Nhân viên
+                                            option(value=1) Quản trị viên
                                 .modal-footer
                                     button.btn.btn-secondary(type='button' data-dismiss='modal') Đóng lại
                                     button.btn.btn-primary(type='submit') Thêm mới
@@ -78,51 +81,54 @@ block content
                                 //-   td= "Người trực thư viện"
                                 td=moment(user.updatedAt).fromNow()
                                 td.text-center
-                                    btn.btn-edit.btn.btn-primary.btn-xs(style="margin-right: 5px", data-email=user.email, data-password=user.password, data-role=user.role)
+                                    btn.btn-edit.btn.btn-primary.btn-xs(style="margin-right: 5px", data-username=user.username, data-password=user.password, data-cccd=user.cccd, data-role=user.role)
                                         i.fas.fa-edit
-                                    btn.btn-delete.btn.btn-danger.btn-xs(style="margin-right: 5px", data-email=user.email)
+                                    btn.btn-delete.btn.btn-danger.btn-xs(style="margin-right: 5px", data-username=user.username)
                                         i.fas.fa-trash
                 
-                //- #EditUserModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='EditUserModal' aria-hidden='true')
-                //-     .modal-dialog(role='document')
-                //-         .modal-content
-                //-             .modal-header
-                //-                 h5.modal-title Chỉnh sửa
-                //-                 button.close(type='button' data-dismiss='modal' aria-label='Close')
-                //-                     span(aria-hidden='true') &times;
-                //-             form(action="/user/edit", method = "post") 
-                //-                 .modal-body
-                //-                     input(type="hidden", name="id")
-                //-                     .form-group
-                //-                         label Email
-                //-                         input.form-control(type='text' placeholder='Email' name='email' )
-                //-                     .form-group
-                //-                         label Password
-                //-                         input.form-control(type='password' placeholder='Password' name='password')
-                //-                     .form-group 
-                //-                         label Vai trò trên hệ thống 
-                //-                         select#sel-role-foredit.form-control.select2(name="role", style="width: 100%;", required)
-                //-                             option
-                //-                             option(value=0) Admin
-                //-                             option(value=1) Người trực thư viện
-                //-                 .modal-footer
-                //-                     button.btn.btn-secondary(type='button' data-dismiss='modal') Đóng lại
-                //-                     button.btn.btn-primary(type='submit') Cập nhật
+                #EditUserModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='EditUserModal' aria-hidden='true')
+                    .modal-dialog(role='document')
+                        .modal-content
+                            .modal-header
+                                h5.modal-title Chỉnh sửa
+                                button.close(type='button' data-dismiss='modal' aria-label='Close')
+                                    span(aria-hidden='true') &times;
+                            form(action="/user/edit", method = "post") 
+                                .modal-body
+                                    input(type="hidden", name="id")
+                                    .form-group
+                                        label Username
+                                        input.form-control(type='text' placeholder='Username' name='username' readonly)
+                                    .form-group
+                                        label Password
+                                        input.form-control(type='password' placeholder='Password' name='password')
+                                    .form-group
+                                        label CCCD/CMND
+                                        input.form-control(type='number' placeholder='CCCD/CMND' name='cccd')
+                                    .form-group 
+                                        label Vai trò trên hệ thống 
+                                        select#sel-role-foredit.form-control.select2(name="role", style="width: 100%;", required)
+                                            option
+                                            option(value=0) Nhân viên
+                                            option(value=1) Quản trị viên
+                                .modal-footer
+                                    button.btn.btn-secondary(type='button' data-dismiss='modal') Đóng lại
+                                    button.btn.btn-primary(type='submit') Cập nhật
                          
-                //- #DeleteUserModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='DeleteUserModal' aria-hidden='true')
-                //-     .modal-dialog(role='document')
-                //-         .modal-content.bg-danger
-                //-             .modal-header
-                //-                 h5.modal-title Xóa
-                //-                 button.close(type='button' data-dismiss='modal' aria-label='Close')
-                //-                     span(aria-hidden='true') &times;
-                //-             form(action="/user/delete", method = "post")
-                //-                 .modal-body
-                //-                     input(type="hidden", name="email", value=id)
-                //-                     p Bạn chắc chưa ?
-                //-                 .modal-footer
-                //-                     button.btn.btn-danger.btn-outline-light(type='button' data-dismiss='modal') Đóng lại
-                //-                     button.btn.btn-danger.btn-outline-light(type='submit') Xác nhận
+                #DeleteUserModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='DeleteUserModal' aria-hidden='true')
+                    .modal-dialog(role='document')
+                        .modal-content.bg-danger
+                            .modal-header
+                                h5.modal-title Xóa
+                                button.close(type='button' data-dismiss='modal' aria-label='Close')
+                                    span(aria-hidden='true') &times;
+                            form(action="/user/delete", method = "post")
+                                .modal-body
+                                    input(type="hidden", name="username", value=id)
+                                    p Bạn chắc chưa ?
+                                .modal-footer
+                                    button.btn.btn-danger.btn-outline-light(type='button' data-dismiss='modal') Đóng lại
+                                    button.btn.btn-danger.btn-outline-light(type='submit') Xác nhận
               // /.card-body
             // /.card
           // /.col
