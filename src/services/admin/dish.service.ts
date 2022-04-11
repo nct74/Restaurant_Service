@@ -16,4 +16,16 @@ export class DishService {
 	async add(dish: Dish): Promise<void> {
 		await this.dishRepository.insert(dish);
 	}
+
+	async edit(dish: any): Promise<void> {
+		await this.dishRepository.update(dish.id, dish);
+	}
+
+	async getOne(id: number): Promise<Dish> {
+		return await this.dishRepository.findOne(id);
+	}
+
+	async delete(dish: Dish): Promise<void> {
+		await this.dishRepository.delete(dish.id);
+	}
 }
