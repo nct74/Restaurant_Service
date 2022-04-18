@@ -2,8 +2,8 @@ import { Body, Controller, Get, Post, Query, Render, Res, UploadedFile, UseInter
 import { FileInterceptor } from "@nestjs/platform-express";
 import { diskStorage } from "multer";
 import { Dish } from "src/models/dish.entity";
-import { DishService } from "src/services/admin/dish.service";
 import { Response } from 'express';
+import { DishService } from "src/services/dish.service";
 
 declare global {
 	var img: string;

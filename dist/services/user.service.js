@@ -27,6 +27,15 @@ let UserService = class UserService {
     async getByUsername(username) {
         return await this.userRepository.findOne(username);
     }
+    async add(user) {
+        await this.userRepository.insert(user);
+    }
+    async edit(user) {
+        await this.userRepository.update(user.username, user);
+    }
+    async delete(user) {
+        await this.userRepository.delete(user.username);
+    }
 };
 UserService = __decorate([
     (0, common_1.Injectable)(),

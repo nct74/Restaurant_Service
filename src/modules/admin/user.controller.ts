@@ -2,7 +2,7 @@ import { User } from 'src/models/user.entity';
 import { Body, Controller, Get, Post, Render, Res } from "@nestjs/common";
 import * as bcrypt from 'bcrypt';
 import { Response } from 'express';
-import { UserService } from 'src/services/admin/user.service';
+import { UserService } from 'src/services/user.service';
 @Controller("user")
 export class UserController {
 	constructor(private userService: UserService) { }

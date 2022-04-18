@@ -5,4 +5,7 @@ export declare class UserService {
     constructor(userRepository: Repository<User>);
     getAll(): Promise<User[]>;
     getByUsername(username: string): Promise<User>;
+    add(user: User): Promise<void>;
+    edit(user: any): Promise<void>;
+    delete(user: User): Promise<void>;
 }

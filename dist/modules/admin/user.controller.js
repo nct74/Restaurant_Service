@@ -8,9 +8,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserController = void 0;
+const user_entity_1 = require("../../models/user.entity");
 const common_1 = require("@nestjs/common");
+const bcrypt = require("bcrypt");
 const user_service_1 = require("../../services/user.service");
 let UserController = class UserController {
     constructor(userService) {
@@ -18,10 +23,30 @@ let UserController = class UserController {
     }
     async index() {
         const userList = await this.userService.getAll();
-        console.log(userList);
         return {
             userList: userList
         };
+    }
+    async add(user, res) {
+        const salt = await bcrypt.genSalt(15);
+        user.password = await bcrypt.hash(user.password, salt);
+        await this.userService.add(user);
+        return res.redirect("/user");
+    }
+    async edit(user, res) {
+        var userToEdit = new user_entity_1.User();
+        userToEdit.username = user.username;
+        userToEdit.password = user.password;
+        userToEdit.cccd = user.cccd;
+        const salt = await bcrypt.genSalt(15);
+        userToEdit.password = await bcrypt.hash(userToEdit.password, salt);
+        console.log(userToEdit);
+        await this.userService.edit(userToEdit);
+        res.redirect("/user");
+    }
+    async delete(user, res) {
+        await this.userService.delete(user);
+        res.redirect("/user");
     }
 };
 __decorate([
@@ -31,6 +56,30 @@ __decorate([
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
 ], UserController.prototype, "index", null);
+__decorate([
+    (0, common_1.Post)("add"),
+    __param(0, (0, common_1.Body)()),
+    __param(1, (0, common_1.Res)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [user_entity_1.User, Object]),
+    __metadata("design:returntype", Promise)
+], UserController.prototype, "add", null);
+__decorate([
+    (0, common_1.Post)("edit"),
+    __param(0, (0, common_1.Body)()),
+    __param(1, (0, common_1.Res)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object, Object]),
+    __metadata("design:returntype", Promise)
+], UserController.prototype, "edit", null);
+__decorate([
+    (0, common_1.Post)("delete"),
+    __param(0, (0, common_1.Body)()),
+    __param(1, (0, common_1.Res)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object, Object]),
+    __metadata("design:returntype", Promise)
+], UserController.prototype, "delete", null);
 UserController = __decorate([
     (0, common_1.Controller)("user"),
     __metadata("design:paramtypes", [user_service_1.UserService])
