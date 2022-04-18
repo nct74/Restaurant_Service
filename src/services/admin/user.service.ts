@@ -14,5 +14,16 @@ export class UserService {
 	}
 	async getByUsername(username: string): Promise<User>{
 		return await this.userRepository.findOne(username);
+
+	async add(user: User): Promise<void> {
+		await this.userRepository.insert(user);
+	}
+
+	async edit(user: any): Promise<void> {
+		await this.userRepository.update(user.username, user);
+	}
+
+	async delete(user: User): Promise<void> {
+		await this.userRepository.delete(user.username);
 	}
 }
