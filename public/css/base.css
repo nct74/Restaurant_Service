@@ -1,0 +1,324 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500&display=swap');
+
+* {
+    margin: 0; padding: 0; 
+    border: none; outline: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    font-family: 'Comfortaa', cursive;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+
+}
+
+
+
+.container {
+    display: block; 
+    margin: auto;
+    /* border: 1px solid black; */
+    padding-top: 3rem;
+    padding-right: 0px;
+    margin-right: 0px;
+}
+
+.firstPage { 
+    display: block; 
+    margin: auto;
+    border: 1px solid black;
+    width: 1200px;
+    height: 100vh;
+    background-color: rgba(255, 0, 0, 0.161);
+}
+
+.page {
+    display: block; 
+    margin: auto;
+    border: 1px solid black;
+    width: 1200px;
+    height: 100vh;
+    background-color: rgba(255, 0, 0, 0.161);
+}
+
+.firstPage-title {
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 400;
+font-size: 9rem;
+line-height: 10.5rem;
+text-align: center;
+
+color: #000000;
+}
+.firstPage-img-container{
+    text-align: center;
+}
+
+.btn {
+background: rgba(255, 0, 0, 0.80);
+border-radius: 3rem;
+font-family: 'Comfortaa';
+font-style: normal;
+font-weight: 400;
+font-size: 6rem;
+line-height: 18rem;
+display: block;
+text-align: center;
+max-width: 50rem;
+max-height: 18rem;
+cursor: pointer;
+transition: all linear .5s;
+}
+
+.btn:hover {
+    background: rgba(255, 0, 0, 0.60);
+}
+
+.al-center { 
+    align-self: center;
+    margin: auto;
+    height: 160px;
+}
+
+.login {
+    background: rgba(255, 0,0, 0.1);
+    height: 100vh;
+    display: flex; 
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    padding-left: 2rem;
+}
+
+.login .logo {
+    display: inline-block;
+
+}
+.login .logo img {
+    width: 5%;
+}
+.login .logo .logo-text {
+
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 400;
+font-size: 50px;
+line-height: 59px;
+text-align: center;
+padding: 0 2rem ;
+}
+
+.login .login-form {
+    width: 65%;
+    border: 1px solid black;
+    background: #FFFFFF;
+    margin: auto;
+    padding: 0 0 3rem;
+}
+
+.login-form .login-title {
+border-bottom: 1px solid #413737;
+padding: .5rem 2rem;
+font-family: 'Comfortaa';
+font-style: normal;
+font-weight: 400;
+font-size: 6.5rem;
+line-height: 7rem;
+display: inline-block;
+width: 100%;
+color: #000000;
+}
+
+.form-input {
+    padding: 1rem 0;
+}
+
+.login-form .user-input {
+    padding: 1rem 2rem;
+    display: flex; 
+gap: 1rem;
+align-items: center;
+flex-wrap: wrap;
+}
+.login-form .card {
+   background-color: #D1ECF8;
+}
+.login-form .cardnumber {
+    margin-top: 3rem;
+ }
+.login-form .double-input{
+    margin: 3rem 0rem;
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+}
+
+
+.login-form .user-input label {
+ 
+font-family: 'Comfortaa';
+font-style: normal;
+font-weight: 400;
+font-size: 2rem;
+line-height: 5.5rem;
+align-items: center;
+text-transform: none;
+color: #000000;
+flex: 0.4 1;
+}
+
+.login-form .user-input input {
+    flex: 0.6 1;
+    font-size: 2rem;
+    border: 1px solid black; 
+    border-radius: 1rem;
+    padding: .8rem 1rem;
+    text-transform: none;
+}
+
+.btn-group { 
+    padding: 3rem 2rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 6rem;
+    padding: 1rem 4rem;
+
+}
+
+.btn-group .login-btn {
+border: 1px solid #000000;
+border-radius: 2rem;
+margin: 4rem 2rem 0;
+padding: .7rem 7rem;
+font-family: 'Comfortaa';
+font-style: normal;
+font-weight: 400;
+font-size: 2rem;
+line-height: 4.5rem;
+align-items: center;
+text-align: center;
+color: #000000;
+cursor: pointer; 
+transition: all linear .4s;
+
+}
+
+
+.btn-group .login-btn:hover {
+    background: rgba(255, 0, 0, 0.8);
+    color: white;
+    border: none;
+}
+
+.paymentbtn-1{
+    margin-top: 7rem;
+    margin-left: 30rem;
+}
+.paymentbtn-2{
+    margin-top: 17rem;
+    margin-left: 30rem;
+}
+
+.login-form .forgot-password {
+    text-align: center;
+    padding: 3rem 0;
+
+}
+.login-form .forgot-password a {
+
+
+font-family: 'Comfortaa';
+font-style: normal;
+font-weight: 400;
+font-size: 1.8rem;
+line-height: 3.1rem;
+align-items: center;
+text-align: center;
+text-decoration-line: underline;
+color: #3794EB !important;
+}
+
+
+.login-form .bottom-text{
+
+font-family: 'Comfortaa';
+font-style: normal;
+font-weight: 400;
+font-size: 1.8rem;
+align-items: center;
+text-align: center;
+margin-top: -2rem;
+color: #000000;
+}
+
+.login-form .bottom-text a{
+    text-decoration-line: underline;
+color: #3794EB !important;
+}
+.page.paymentPage{
+    background-color: #ffffff;
+}
+.header .paymentPage{
+    border: solid;
+}
+.login-form.paymentform {
+    text-align: center;
+    width: 70%;
+    margin: auto;
+}
+
+
+@media screen and (max-width: 1200px){
+    .firstPage, .page {
+        width: 100%;
+        padding: 0 3rem;
+    }
+    .login .login-form {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .firstPage, .page {
+        width: 100%;
+        padding: 0 2rem;
+    }
+    html {
+        font-size: 55%;
+    
+    }
+
+    .login .login-form {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 450px){
+    .firstPage, .page {
+        width: 100%;
+    }
+    html {
+        font-size: 50%;
+    
+    }
+}
+.bottom-text.footstmt {
+    margin-top: 2rem;
+}
+
+/* <div class="container">
+    <div class="firstPage-img-container">
+        <img src="" alt="" srcset="">
+    </div>
+    <h1>Restaurant P.O.S 2.0</h1>
+    <div class="btn">Đăng nhập</div>
+</div> */
+.page.firstPage{
+    background-image: url(/img/first.png); opacity: 0.7;
+}

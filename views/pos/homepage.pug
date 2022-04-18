@@ -1,0 +1,22 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible' content='IE=edge')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    link(rel='stylesheet' href='/css/base.css')
+    link(rel='stylesheet' href='/css/homepage.css')
+    title Home page
+  body
+    .page.homePage(style="background-image: url(/img/khachhang.png); background-repeat: no-repeat;background-size: cover; opacity: 0.8; ")
+      .header
+        .logo
+          img(src='./img/restaurant-512.webp' alt='' srcset='' style="width:60px; float:left;")
+          span.logo-text Home
+        .user-login
+          span.login-btn Đăng nhập
+      .title
+        | Xin chào quý khách!
+      .btn-group
+        a.btn.greencolor(href='#') Order
+        a.btn(href='#') Payment

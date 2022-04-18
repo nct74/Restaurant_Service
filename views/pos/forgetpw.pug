@@ -1,0 +1,33 @@
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible' content='IE=edge')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    link(rel='stylesheet' href='./css/base.css')
+    title Lost account
+  body
+    .page.login(style="background-image: url(/img/lock.jpg);background-repeat: no-repeat;background-size: cover; opacity: 0.7; ")
+      .logo
+        img(src='./img/restaurant-512.webp' alt='' srcset='')
+        span.logo-text Restaurant P.O.S 2.0
+      form.login-form
+        .login-title Quên mật khẩu
+        .form-input
+          .user-input
+            label(for='username') Staff Id
+            input.username(type='text')
+          .user-input
+            label(for='password') Phone Numner
+            input.password(type='password')
+          .user-input
+            label(for='username') CMND
+            input.username(type='text')
+          .user-input
+            label(for='password') Mật khẩu mới
+            input.password(type='password')
+        .btn-group
+          a.login-btn(href='#') Hủy bỏ
+          a.login-btn(href='#') Đổi mật khẩu
+        .bottom-text.footstmt
+          | Bạn chưa có tài khoản? Vui lòng
+          a(href='#') Đăng kí

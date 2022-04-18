@@ -1,0 +1,256 @@
+.page {
+    display: block; 
+    /* margin: auto; */
+    border: 1px solid black;
+    width: 1200px;
+    height: 100vh;
+    background-color: #D1ECF8;
+    padding: 0px 0px 0px 0px;
+}
+
+
+.homePage .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0rem 1rem;
+}
+.homePage .logo {
+    display: inline-block;
+    padding-top: 20px;
+
+}
+.homePage .logo img {
+    width: 5%;
+    padding-bottom: 35px;
+}
+
+.homePage .logo .logo-text {
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 400;
+font-size: 50px;
+line-height: 59px;
+text-align: center;
+padding: 0 2rem ;
+}
+.homePage .payment {
+    display: inline-block;
+
+}
+.homePage .payment {
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 400;
+font-size: 50px;
+line-height: 59px;
+text-align: center;
+margin-right: 50rem;
+}
+.logopayment {
+    display: inline-block;
+
+}
+.logopayment img {
+    width: 20%;
+}
+
+.logopayment {
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 400;
+font-size: 50px;
+line-height: 59px;
+text-align: center;
+padding: 3rem auto;
+}
+
+.homePage .cart{
+
+    height: 958px;
+    background-color: #ffffff;
+}
+.homePage .user-login{
+    padding: 1rem 0 0;
+
+}
+.homePage .user-login .login-btn {
+    border: 1px solid #000000;
+    border-radius: 2rem;
+    padding: .7rem 2rem;
+    font-family: 'Comfortaa';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 2rem;
+    line-height: 4.5rem;
+    text-align: center;
+    cursor: pointer; 
+    transition: all linear .4s;
+    text-transform: none;
+}
+
+.homePage .user-login .login-btn:hover {
+    background: rgba(255, 0, 0, 0.8);
+    color: white;
+    border: none;
+}
+
+.homePage .title {
+font-family: 'Comfortaa';
+font-style: normal;
+font-weight: 600;
+font-size: 7rem;
+line-height: 8rem;
+align-items: center;
+text-align: center;
+padding: 15rem 0 20rem;
+text-transform: none;
+
+}
+.homePage .btn-group{
+    margin: 0rem 5rem;
+}
+
+.homePage .btn-group .btn {
+font-family: 'Comfortaa';
+font-style: normal;
+font-weight: 400;
+font-size: 5rem;
+line-height: 7rem;
+text-align: center;
+padding: 1rem 5rem;
+color: black;
+}
+.btn.greencolor {
+    background-color: green;
+}
+.btn.yelowcolor {
+    background-color: #FFE600;
+}
+.btn.bluecolor {
+    background-color: #3794EB;
+}
+.button.greycolor {
+    background-color: #7C8691;
+}
+.button.greenbanana {
+    background-color: #4CAF50;
+}
+.button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+.paymentsuccess{
+    background-image: url(/img/failed.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.paymentfalied{
+    background-image: url(/img/failed.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.failedbtn{
+    margin-top: 20rem;
+    margin-left: 10rem;
+    margin-right: 10rem;
+}
+.failedmessage{
+    font-size: 5rem;
+    text-align: center;
+    margin-top: 40rem;
+    color: black;
+}
+.successbtn{
+    margin-left: 25rem;
+    margin-right: 25rem;
+    margin-top: 20rem;
+}
+.successmessage{
+    font-size:3rem;
+    display: flex;
+    flex-direction:row;
+    justify-content: center;
+    gap: 30rem;
+    margin-top: 40rem;
+}
+.container1{
+    border: 1px solid black;
+    width: 1200px;
+    padding: 0px 0px 0px 0px;
+    margin-left: 0px;
+    display: flex;
+    flex-direction:row;
+    gap: 0rem;
+    padding-top: 0px;
+    background-color: #D1ECF8;
+
+}
+.container.dish{
+    background-color: grey;
+}
+
+.carousel-part{
+    display: flex;
+    flex-direction:row;
+    gap: 2rem;
+}
+.foodcard{
+    position: absolute;
+    width: 370px;
+    height: 105px;
+    border-radius: 15px;
+    background-color: #E5E5E5;
+}
+.foodcardimage img{
+    width: 70px;
+    height: 70px;
+}
+.d-block{
+    display: inline;
+}
+.cardmenu{
+    width: 115px;
+    height: 115px;
+    background-color: #ffffff;
+}
+.bodylishdish {margin-top:20px;}
+.carddora{
+    width:18rem;
+    background-color: #ffffff;
+    height: 230px;
+    margin-left: 50px;
+    margin-top: 20px;
+    float: left;
+}
+.card-img-top{ 
+    width: 90%;
+    height: 130px;
+    margin: 0px 0px 0px 10px;
+}
+hr.hr-img-top{
+    width: 100%;
+}
+h2.card-title{
+    margin-left: 7px;;
+}
+h2.card-text{
+    float: left;
+    color:red;
+    margin-left: 10px;
+}
+button.card-text{
+    float: right;
+    margin: 0px 10px 15px 0px;
+}
+.img-button-card{
+    float:left; width: 40px;border-radius: 10px;
+}

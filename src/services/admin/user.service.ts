@@ -12,6 +12,8 @@ export class UserService {
 	async getAll(): Promise<User[]> {
 		return await this.userRepository.find();
 	}
+	async getByUsername(username: string): Promise<User>{
+		return await this.userRepository.findOne(username);
 
 	async add(user: User): Promise<void> {
 		await this.userRepository.insert(user);
