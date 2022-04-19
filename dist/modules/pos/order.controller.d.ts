@@ -12,4 +12,5 @@ export declare class OrderController {
     getAll(ma: string): Promise<{
         data: import("../../models/dish.entity").Dish[];
     }>;
+    addOrder(arrid: Array<void>, arrquan: Array<void>): Promise<void>;
 }

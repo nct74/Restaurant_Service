@@ -38,11 +38,19 @@ let OrderController = class OrderController {
         return viewBag;
     }
     async getAll(ma) {
-        var list = await this.dishService.getdishofftype(ma);
+        if (ma == "All of dish") {
+            var list = await this.dishService.getAll();
+        }
+        else
+            var list = await this.dishService.getdishofftype(ma);
         const viewBag = {
             data: list
         };
         return viewBag;
+    }
+    async addOrder(arrid, arrquan) {
+        console.log(arrid);
+        console.log(arrquan);
     }
 };
 __decorate([
@@ -59,6 +67,14 @@ __decorate([
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", Promise)
 ], OrderController.prototype, "getAll", null);
+__decorate([
+    (0, common_1.Post)('/addOrder'),
+    __param(0, (0, common_1.Body)('arrid')),
+    __param(1, (0, common_1.Body)('arrquan')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Array, Array]),
+    __metadata("design:returntype", Promise)
+], OrderController.prototype, "addOrder", null);
 OrderController = __decorate([
     (0, common_1.Controller)("order"),
     __metadata("design:paramtypes", [dish_service_1.DishService])
