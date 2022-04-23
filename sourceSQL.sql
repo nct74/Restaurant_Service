@@ -5,15 +5,6 @@ INSERT INTO `user`(`username`, `password`, `cccd`, `role`, `createAt`, `updateAt
 INSERT INTO `user`(`username`, `password`, `cccd`, `role`, `createAt`, `updateAt`) VALUES ('admin1','admin1','12345','1', NOW(), NOW());
 INSERT INTO `user`(`username`, `password`, `cccd`, `role`, `createAt`, `updateAt`) VALUES ('admin2','admin2','12345','1', NOW(), NOW());
 
--- INSERT INTO `dish`(`id`, `name`, `price`, `info_detail`, `type`, `createAt`, `updateAt`, `image`) 
--- VALUES (1, 'milktea',10000,'ngon lam ne', 'thuc uong', NOW(), NOW(), '/public/img/milktea');
--- INSERT INTO `dish`(`id`, `name`, `price`, `info_detail`, `type`, `createAt`, `updateAt`, `image`) 
--- VALUES (2, 'banh kem',10000,'ngon lam neeee', 'do an', NOW(), NOW(), '/public/img/cake');
--- INSERT INTO `dish`(`id`, `name`, `price`, `info_detail`, `type`, `createAt`, `updateAt`, `image`) 
--- VALUES (3, 'milktea2',10000,'ngon lam nee', 'thuc uong', NOW(), NOW(), '/public/img/milktea');
--- INSERT INTO `dish`(`id`, `name`, `price`, `info_detail`, `type`, `createAt`, `updateAt`, `image`) 
--- VALUES (4, 'milktea3',10000,'ngon lam neeeee', 'thuc uong', NOW(), NOW(), '/public/img/milktea');
-
 INSERT INTO `dish` (`id`, `name`, `price`, `info_detail`, `image`, `type`, `createAt`, `updateAt`) VALUES
 (9, 'Mochi', 33000, 'This is the best cake of our restaurant!!', 'upload/Mochi25000-1649673708294.jpg', 'Cake', '2022-04-11 16:55:48.985935', '2022-04-11 17:41:48.000000'),
 (10, 'Tiramisu', 29000, 'Try it', 'upload/Tiramisu-69000-1649673773806.jpg', 'Cake', '2022-04-11 16:56:13.780015', '2022-04-11 17:42:53.000000'),
@@ -21,10 +12,13 @@ INSERT INTO `dish` (`id`, `name`, `price`, `info_detail`, `image`, `type`, `crea
 (12, 'Traditional Milk Teaa', 42000, 'This is the best drink of our restaurant!!', 'upload/TraditionalMilkTea-32000-1649673786912.jpg', 'Drink', '2022-04-11 17:39:57.226574', '2022-04-11 17:43:06.000000'),
 (13, 'Dessert 1', 33232, 'Best seller', 'upload/Novelicious on Twitter-1650284615162.jpg', 'Dessert', '2022-04-18 19:23:35.187089', '2022-04-18 19:23:35.187089');
 
-INSERT INTO `user` (`username`, `password`, `cccd`, `role`, `createAt`, `updateAt`) VALUES
-('admin4', '$2b$15$PnNR/fVd0762IQNaNXy2teoT49hYaRTv5rqotLWvgniQe9sWZWgo.', '44446', 1, '2022-04-10 21:13:22.544889', '2022-04-10 21:30:05.000000'),
-('staff1', '$2b$15$2iyoVjq5Ptvdz.P4K4Lmouh0Z3Qv3AZ14uWwG62R4lL8KJaqLSMVC', '12345222', 0, '2022-04-10 18:24:58.000000', '2022-04-10 21:33:01.000000');
-
 INSERT INTO `order`(`id`, `note`, `total`, `orderStatus`, `time`, `createAt`, `updateAt`) VALUES (1,'Ahihi', 60000, false, now(), now(), now());
 INSERT INTO `order`(`id`, `note`, `total`, `orderStatus`, `time`, `createAt`, `updateAt`) VALUES (2,'Do Ngoc', 6760000, true, now(), now(), now());
 INSERT INTO `order`(`id`, `note`, `total`, `orderStatus`, `time`, `createAt`, `updateAt`) VALUES (3,'NCT', 90000, false, now(), now(), now());
+
+INSERT INTO `contain`(`orderId`, `dishId`, `quantity`) VALUES (1,9,3);
+INSERT INTO `contain`(`orderId`, `dishId`, `quantity`) VALUES (1,10,2);
+INSERT INTO `contain`(`orderId`, `dishId`, `quantity`) VALUES (1,11,2);
+INSERT INTO `contain`(`orderId`, `dishId`, `quantity`) VALUES (2,11,2);
+INSERT INTO `contain`(`orderId`, `dishId`, `quantity`) VALUES (3,9,2);
+

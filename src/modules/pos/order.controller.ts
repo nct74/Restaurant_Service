@@ -57,7 +57,7 @@ export class OrderController {
         }
         for(var i = 0 ; i < arrid.length ; i++){
             var newContain = new Contain();
-            newContain.orderId = newOrder.id;
+            // newContain.orderId = newOrder.id;
             // newContain.dishId = (arrid[i]);
             await this.orderService.add(newOrder);
         }
