@@ -7,6 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AdminModule = void 0;
+const contain_service_1 = require("./../../services/contain.service");
 const order_entity_1 = require("../../models/order.entity");
 const order_service_1 = require("./../../services/order.service");
 const orderManager_controller_1 = require("./orderManager.controller");
@@ -18,12 +19,13 @@ const user_service_1 = require("../../services/user.service");
 const dish_controller_1 = require("./dish.controller");
 const dish_entity_1 = require("../../models/dish.entity");
 const dish_service_1 = require("../../services/dish.service");
+const contain_entity_1 = require("../../models/contain.entity");
 let AdminModule = class AdminModule {
 };
 AdminModule = __decorate([
     (0, common_1.Module)({
-        imports: [typeorm_1.TypeOrmModule.forFeature([user_entity_1.User, dish_entity_1.Dish, order_entity_1.Order])],
-        providers: [user_service_1.UserService, dish_service_1.DishService, order_service_1.OrderService],
+        imports: [typeorm_1.TypeOrmModule.forFeature([user_entity_1.User, dish_entity_1.Dish, order_entity_1.Order, contain_entity_1.Contain])],
+        providers: [user_service_1.UserService, dish_service_1.DishService, order_service_1.OrderService, contain_service_1.ContainService],
         controllers: [user_controller_1.UserController, dish_controller_1.DishController, orderManager_controller_1.OrderManagerController]
     })
 ], AdminModule);

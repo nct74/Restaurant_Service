@@ -1,3 +1,4 @@
+import { ContainService } from './../../services/contain.service';
 import { Order } from 'src/models/order.entity';
 import { OrderService } from './../../services/order.service';
 import { OrderManagerController } from './orderManager.controller';
@@ -9,10 +10,11 @@ import { UserService } from 'src/services/user.service';
 import { DishController } from './dish.controller';
 import { Dish } from 'src/models/dish.entity';
 import { DishService } from 'src/services/dish.service';
+import { Contain } from 'src/models/contain.entity';
 
 @Module({
-	imports: [TypeOrmModule.forFeature([User, Dish, Order])],
-	providers: [UserService, DishService, OrderService],
+	imports: [TypeOrmModule.forFeature([User, Dish, Order, Contain])],
+	providers: [UserService, DishService, OrderService, ContainService],
 	controllers: [UserController, DishController, OrderManagerController]
 })
 
