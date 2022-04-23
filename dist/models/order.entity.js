@@ -23,12 +23,16 @@ __decorate([
 ], Order.prototype, "note", void 0);
 __decorate([
     (0, typeorm_1.Column)(),
-    __metadata("design:type", Date)
-], Order.prototype, "time", void 0);
+    __metadata("design:type", Number)
+], Order.prototype, "total", void 0);
 __decorate([
     (0, typeorm_1.Column)(),
-    __metadata("design:type", String)
+    __metadata("design:type", Boolean)
 ], Order.prototype, "orderStatus", void 0);
+__decorate([
+    (0, typeorm_1.Column)(),
+    __metadata("design:type", Date)
+], Order.prototype, "time", void 0);
 __decorate([
     (0, typeorm_1.CreateDateColumn)(),
     __metadata("design:type", Date)

@@ -7,6 +7,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AdminModule = void 0;
+const order_entity_1 = require("../../models/order.entity");
+const order_service_1 = require("./../../services/order.service");
+const orderManager_controller_1 = require("./orderManager.controller");
 const user_controller_1 = require("./user.controller");
 const common_1 = require("@nestjs/common");
 const user_entity_1 = require("../../models/user.entity");
@@ -19,9 +22,9 @@ let AdminModule = class AdminModule {
 };
 AdminModule = __decorate([
     (0, common_1.Module)({
-        imports: [typeorm_1.TypeOrmModule.forFeature([user_entity_1.User, dish_entity_1.Dish])],
-        providers: [user_service_1.UserService, dish_service_1.DishService],
-        controllers: [user_controller_1.UserController, dish_controller_1.DishController]
+        imports: [typeorm_1.TypeOrmModule.forFeature([user_entity_1.User, dish_entity_1.Dish, order_entity_1.Order])],
+        providers: [user_service_1.UserService, dish_service_1.DishService, order_service_1.OrderService],
+        controllers: [user_controller_1.UserController, dish_controller_1.DishController, orderManager_controller_1.OrderManagerController]
     })
 ], AdminModule);
 exports.AdminModule = AdminModule;

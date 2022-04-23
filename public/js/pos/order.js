@@ -1,18 +1,18 @@
 
 $(document).ready(function () {
   $(".getdata").click(function (e) {
-      var ma = $(this).data("type");
-      console.log(ma);
-      $('.titlelistdish').text(ma);
-      $('.carddora').remove();    
-      $.post('/order/getalldish', {ma: ma}, function (data) {
-          // if(ma=="")
-          // $('.dishreal').
-          var list = data.data;
-              for(var i=0;i<list.length;i++){
-  
-                  // var mycard = $(`<div class="carddora"></div>`)
-                  var newtext = `
+    var ma = $(this).data("type");
+    console.log(ma);
+    $('.titlelistdish').text(ma);
+    $('.carddora').remove();
+    $.post('/order/getalldish', { ma: ma }, function (data) {
+      // if(ma=="")
+      // $('.dishreal').
+      var list = data.data;
+      for (var i = 0; i < list.length; i++) {
+
+        // var mycard = $(`<div class="carddora"></div>`)
+        var newtext = `
                   <div class="carddora">
                       <img class="card-img-top" src=${list[i].image} alt='Card image cap' >
                       <div class="card-body-top" >
@@ -26,14 +26,14 @@ $(document).ready(function () {
                           </button>
                       </div>
                   </div>`;
-                  $(".dishreal").append(newtext);
-                  
-              }
-  
-          // console.log(data.data);
-      })
+        $(".dishreal").append(newtext);
+
+      }
+
+      // console.log(data.data);
+    })
   })
-  
+
   // var t = $('.dishreal').get(0);
   // $("button.card-text").click(function (e) {
   //     // var MaKH = $(this).data("makh");
@@ -43,53 +43,53 @@ $(document).ready(function () {
   // $("#ab").on( "click",'#hehe', function(e) {
   //     $('#addmonan').modal('show');
   //   });
-  
+
   //   $(document).ready(function() {
   //     $("button .card-text").click(function(){
   //         alert("button");
   //     }); 
   // });
-  
-  })
-  
-  
-  $(document).ready(function () {
-  $("#ab").on( "click",'button', function(e) {
+
+})
+
+
+$(document).ready(function () {
+  $("#ab").on("click", 'button', function (e) {
     var image = $(this).data("image");
     var id = $(this).data("id");
     var name = $(this).data("name");
     var price = $(this).data("price");
     var info = $(this).data("info");
-    var m1 = $(makeModal(image,name,price,info,id)); // I would want to skip creating an HTML element with jQuery.
+    var m1 = $(makeModal(image, name, price, info, id)); // I would want to skip creating an HTML element with jQuery.
     $(".quantity").remove();
     m1.modal('show');
-   
-    });
-  
-  })
-  
-  function myFunctionplus() {
-  
-    // var a = document.getElementById(id);
-    // var b = parseInt(a.textContent)+1;
-    // document.getElementById(id).innerHTML = b;
 
-    let variable = $(".quantity").text();
-    let b = parseInt(variable)+1;
-    b = parseInt(b);
-    $(".quantity").html(b);
-  }
-  function myFunctionminus() {
+  });
 
-    let variable = $(".quantity").text();
-    let b = parseInt(variable)-1;
-    if(b<1)  $(".quantity").html(1);
-    else $(".quantity").html(b);
-  }
-  
-    
-    function makeModal(image,name,price,info,id) {
-      return `<div id="myModal" class="modal fade" role="dialog" style="display: none">
+})
+
+function myFunctionplus() {
+
+  // var a = document.getElementById(id);
+  // var b = parseInt(a.textContent)+1;
+  // document.getElementById(id).innerHTML = b;
+
+  let variable = $(".quantity").text();
+  let b = parseInt(variable) + 1;
+  b = parseInt(b);
+  $(".quantity").html(b);
+}
+function myFunctionminus() {
+
+  let variable = $(".quantity").text();
+  let b = parseInt(variable) - 1;
+  if (b < 1) $(".quantity").html(1);
+  else $(".quantity").html(b);
+}
+
+
+function makeModal(image, name, price, info, id) {
+  return `<div id="myModal" class="modal fade" role="dialog" style="display: none">
       <div class="modal-lg modal-dialog modal-dialog-centered ">
         <!-- Modal content-->
         <div class="modal-content">
@@ -130,33 +130,32 @@ $(document).ready(function () {
     
       </div>
     </div>`;
-    }
-  
-    function myFunctionAdd(id,image,price,name) {
-  
-      let b = $(".quantity").text();
-      // var b = id;
-      // console.log(a);
-      // console.log(b);
-      // console.log(b);
-      let check = 0;
-      var i = 0 ;
-      while($(".foodcard p")[i])
-      {
-        var con = $(".foodcard p").eq(i).attr('class');
-        if(con==id){
-          var datacurrent = $(".foodcard h2").eq(i).text();
-          datacurrent = parseInt(datacurrent) + parseInt(b);
-          $(".foodcard h2").eq(i).text(datacurrent);
-          $(".foodcard span").eq(i).text(`${datacurrent*price} $`);
-          console.log(datacurrent);
-          check = 1;
-        }
-        i++;
-      }
+}
 
-  
-      var a = `<div class="foodcard ${id}" style="position: relative">
+function myFunctionAdd(id, image, price, name) {
+
+  let b = $(".quantity").text();
+  // var b = id;
+  // console.log(a);
+  // console.log(b);
+  // console.log(b);
+  let check = 0;
+  var i = 0;
+  while ($(".foodcard p")[i]) {
+    var con = $(".foodcard p").eq(i).attr('class');
+    if (con == id) {
+      var datacurrent = $(".foodcard h2").eq(i).text();
+      datacurrent = parseInt(datacurrent) + parseInt(b);
+      $(".foodcard h2").eq(i).text(datacurrent);
+      $(".foodcard span").eq(i).text(`${datacurrent * price} $`);
+      console.log(datacurrent);
+      check = 1;
+    }
+    i++;
+  }
+
+
+  var a = `<div class="foodcard ${id}" style="position: relative">
       <div class="foodcardimage"><img src=${image} alt="cart" style="float:left; width: 60px;border-radius: 10px; margin: 20px 0px 0px 10px;" /></div>
       <div class="foodcardinfor">
           <p  class="${id}"></p>
@@ -171,51 +170,45 @@ $(document).ready(function () {
           <span style="font-size:25px; color:red; float: right; margin-right:10px;">${price * b} $</span>
       </div>
       </div>`;
-      if(check == 0){
-        $(".bodySection").append(a);
-        let quantity = parseInt($(".headSection span").text());
+  if (check == 0) {
+    $(".bodySection").append(a);
+    let quantity = parseInt($(".headSection span").text());
 
-        $(".headSection span").text(`  ${quantity+1}`);
-      }
-      resetTotal();
+    $(".headSection span").text(`  ${quantity + 1}`);
+  }
+  resetTotal();
+}
+function resetTotal() {
+  var total = 0;
+  var x = 0;
+  while ($(".foodcard p")[x]) {
+    let pricei = $(".foodcard span").eq(x).text();
+    let getpricei = "";
+    for (let y = 0; y < pricei.length - 2; y++) {
+      getpricei += pricei[y];
     }
-    function resetTotal(){     
-      var total = 0;
-      var x = 0 ;
-      while($(".foodcard p")[x])
-      {
-        let pricei = $(".foodcard span").eq(x).text();
-        let getpricei = "";
-        for( let y = 0 ; y < pricei.length-2 ; y++){
-          getpricei +=  pricei[y];
-        }
-        total += parseInt(getpricei);
-        x++;
-      }
-      $(".paymentSection p").text(` ${total} USD`);
-    }
-    function Minusinpayment(id,price) {
+    total += parseInt(getpricei);
+    x++;
+  }
+  $(".paymentSection p").text(` ${total} USD`);
+}
+function Minusinpayment(id, price) {
 
-      // let variable = $(".quantity").text();
-      // let b = parseInt(variable)-1;
-      // if(b<1)  $(".quantity").html(1);
-      // else $(".quantity").html(b);
-      let i = 0 ;
-      while($(".foodcard p")[i])
-      {
-        let con = $(".foodcard p").eq(i).attr('class');
-        if(con==id){
-          let datacurrent = $(".foodcard h2").eq(i).text();
-          datacurrent = parseInt(datacurrent) - 1;
-          if(datacurrent ==0 ) datacurrent=1;
-          $(".foodcard h2").eq(i).text(datacurrent);
-          $(".foodcard span").eq(i).text(`${datacurrent*price} $`);
-          console.log(datacurrent);
-          check = 1;
-        }
-        i++;
-      }
-      resetTotal();
+  // let variable = $(".quantity").text();
+  // let b = parseInt(variable)-1;
+  // if(b<1)  $(".quantity").html(1);
+  // else $(".quantity").html(b);
+  let i = 0;
+  while ($(".foodcard p")[i]) {
+    let con = $(".foodcard p").eq(i).attr('class');
+    if (con == id) {
+      let datacurrent = $(".foodcard h2").eq(i).text();
+      datacurrent = parseInt(datacurrent) - 1;
+      if (datacurrent == 0) datacurrent = 1;
+      $(".foodcard h2").eq(i).text(datacurrent);
+      $(".foodcard span").eq(i).text(`${datacurrent * price} $`);
+      console.log(datacurrent);
+      check = 1;
     }
     function copytext() {
       var copyText = document.getElementById("myInput");
@@ -247,6 +240,12 @@ $(document).ready(function () {
       $(".headSection span").text(`  ${i}`);
       resetTotal();
     }
+    i++;
+  }
+  if (check == 1) i--;
+  $(".headSection span").text(`  ${i}`);
+  resetTotal();
+}
 
     function Addinpayment(id,price) {
       let i = 0 ;

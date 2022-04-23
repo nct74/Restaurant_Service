@@ -1,3 +1,4 @@
+/// <reference types="qs" />
 import { Request, Response } from 'express';
 import { JwtService } from '@nestjs/jwt';
 import { UserService } from 'src/services/user.service';
