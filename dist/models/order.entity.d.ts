@@ -1,8 +1,9 @@
 export declare class Order {
     id: number;
     note: string;
+    total: number;
+    orderStatus: boolean;
     time: Date;
-    orderStatus: string;
     createAt: Date;
     updateAt: Date;
 }

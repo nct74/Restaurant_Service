@@ -11,10 +11,13 @@ export class Order {
 	note: string;
 
 	@Column()
-	time: Date;
+	total: number;
 
 	@Column()
-	orderStatus: string;
+	orderStatus: boolean;
+
+	@Column()
+	time: Date;
 
 	@CreateDateColumn()
 	createAt: Date;

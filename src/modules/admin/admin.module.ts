@@ -1,3 +1,6 @@
+import { Order } from 'src/models/order.entity';
+import { OrderService } from './../../services/order.service';
+import { OrderManagerController } from './orderManager.controller';
 import { UserController } from './user.controller';
 import { Module } from "@nestjs/common";
 import { User } from 'src/models/user.entity';
@@ -8,9 +11,9 @@ import { Dish } from 'src/models/dish.entity';
 import { DishService } from 'src/services/dish.service';
 
 @Module({
-	imports: [TypeOrmModule.forFeature([User, Dish])],
-	providers: [UserService, DishService],
-	controllers: [UserController, DishController]
+	imports: [TypeOrmModule.forFeature([User, Dish, Order])],
+	providers: [UserService, DishService, OrderService],
+	controllers: [UserController, DishController, OrderManagerController]
 })
 
 export class AdminModule { }
