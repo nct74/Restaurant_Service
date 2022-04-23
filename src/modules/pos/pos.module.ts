@@ -13,10 +13,13 @@ import { Payment1Controller } from "./payment1.controller";
 import { HomeController } from "./homepage.controller";
 import { CashierController } from "./cashier.controller";
 import { ForgetpwController } from "./forgetps.controller";
+import { OrderService } from "src/services/order.service";
+import { Order } from "src/models/order.entity";
+import { Contain } from "src/models/contain.entity";
 
 @Module({
-	imports: [TypeOrmModule.forFeature([User,Dish])],
-	providers: [UserService,DishService],
+	imports: [TypeOrmModule.forFeature([User,Dish,Order,Contain])],
+	providers: [UserService,DishService,OrderService],
 	controllers: [OrderController, PaymentFailController,EntranceController,PaymentSSController,Payment1Controller,HomeController,CashierController,ForgetpwController]
 })
 

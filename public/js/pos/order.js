@@ -192,6 +192,20 @@ function resetTotal() {
   }
   $(".paymentSection p").text(` ${total} USD`);
 }
+function copytext() {
+  var copyText = document.getElementById("myInput");
+
+  /* Select the text field */
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+   /* Copy the text inside the text field */
+  navigator.clipboard.writeText(copyText.value);
+  console.log(copyText.value);
+}
+function fireSweetAlert(data) {
+  Swal.fire({title:'<h2>Đây là mã đơn hàng của bạn:</h2>',  html:`<input style="border: 2px solid #E5E5E5 ; font-size:30px;border-radius: 25px; text-align: center; height: 60px; width: 320px;" type="text" value=${data} id="myInput"> <button style="background-color: #E5E5E5; height: 60px;width:120px; font-size:20px; border-radius: 25px;" onclick="copytext()">Copy text</button>`,  icon:'success' , width: '600px',confirmButtonText: '<h2 style="font-size:20px;">OK</h2>',});
+}
 function Minusinpayment(id, price) {
 
   // let variable = $(".quantity").text();
@@ -208,60 +222,43 @@ function Minusinpayment(id, price) {
       $(".foodcard h2").eq(i).text(datacurrent);
       $(".foodcard span").eq(i).text(`${datacurrent * price} $`);
       console.log(datacurrent);
-      check = 1;
-    }
-    function copytext() {
-      var copyText = document.getElementById("myInput");
-
-      /* Select the text field */
-      copyText.select();
-      copyText.setSelectionRange(0, 99999); /* For mobile devices */
-    
-       /* Copy the text inside the text field */
-      navigator.clipboard.writeText(copyText.value);
-      console.log(copyText.value);
-    }
-    function fireSweetAlert(data) {
-      Swal.fire({title:'<h2>Đây là mã đơn hàng của bạn:</h2>',  html:`<input style="border: 2px solid #E5E5E5 ; font-size:30px;border-radius: 25px; text-align: center; height: 60px; width: 320px;" type="text" value=${data} id="myInput"> <button style="background-color: #E5E5E5; height: 60px;width:120px; font-size:20px; border-radius: 25px;" onclick="copytext()">Copy text</button>`,  icon:'success' , width: '600px',confirmButtonText: '<h2 style="font-size:20px;">OK</h2>',});
-    }
-    function Deleteinpayment(id) {
-      let i = 0 ;
-      let check = 0;
-      while($(".foodcard p")[i])
-      {
-        let con = $(".foodcard p").eq(i).attr('class');
-        if(con==id){
-          $(".foodcard").eq(i).remove();
-          check = 1;
-        }
-        i++;
-      }
-      if (check==1) i--;
-      $(".headSection span").text(`  ${i}`);
-      resetTotal();
     }
     i++;
   }
-  if (check == 1) i--;
   $(".headSection span").text(`  ${i}`);
   resetTotal();
 }
-
-    function Addinpayment(id,price) {
-      let i = 0 ;
-      while($(".foodcard p")[i])
-      {
-        let con = $(".foodcard p").eq(i).attr('class');
-        if(con==id){
-          let datacurrent = $(".foodcard h2").eq(i).text();
-          datacurrent = parseInt(datacurrent) + 1;
-          $(".foodcard h2").eq(i).text(datacurrent);
-          $(".foodcard span").eq(i).text(`${datacurrent*price} $`);
-        }
-        i++;
-      }
-      resetTotal();
+function Deleteinpayment(id) {
+  let i = 0 ;
+  let check = 0;
+  while($(".foodcard p")[i])
+  {
+    let con = $(".foodcard p").eq(i).attr('class');
+    if(con==id){
+      $(".foodcard").eq(i).remove();
+      check = 1;
     }
+    i++;
+  }
+  if (check==1) i--;
+  $(".headSection span").text(`  ${i}`);
+  resetTotal();
+}
+function Addinpayment(id,price) {
+  let i = 0 ;
+  while($(".foodcard p")[i])
+  {
+    let con = $(".foodcard p").eq(i).attr('class');
+    if(con==id){
+      let datacurrent = $(".foodcard h2").eq(i).text();
+      datacurrent = parseInt(datacurrent) + 1;
+      $(".foodcard h2").eq(i).text(datacurrent);
+      $(".foodcard span").eq(i).text(`${datacurrent*price} $`);
+    }
+    i++;
+  }
+  resetTotal();
+}
     function Payment() {
       var arrid = new Array();
       var arrquan = new Array();
