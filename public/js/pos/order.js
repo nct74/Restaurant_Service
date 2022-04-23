@@ -217,6 +217,8 @@ $(document).ready(function () {
       }
       resetTotal();
     }
+    function fireSweetAlert(data) {
+      Swal.fire('Đây là mã đơn hàng của bạn:', data, 'success');}
     function Deleteinpayment(id) {
       let i = 0 ;
       let check = 0;
@@ -262,9 +264,7 @@ $(document).ready(function () {
         i++;
       }
       $.post('/order/addOrder', {arrid: arrid, arrquan:arrquan}, function (data) {
-        var a = "đâsd";
+        var a = "aaa";
         fireSweetAlert(a);
       })
     }
-    function fireSweetAlert(data) {
-      Swal.fire('Bạn đã order thành công!', 'Đây là mã đơn hàng của bạn:', data, 'success');}
