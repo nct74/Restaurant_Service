@@ -16,27 +16,27 @@ const order_entity_1 = require("./order.entity");
 let Contain = class Contain {
 };
 __decorate([
-    (0, typeorm_1.PrimaryColumn)(),
-    __metadata("design:type", Number)
-], Contain.prototype, "orderId", void 0);
-__decorate([
-    (0, typeorm_1.PrimaryColumn)(),
-    __metadata("design:type", Number)
-], Contain.prototype, "dishId", void 0);
-__decorate([
-    (0, typeorm_1.Column)(),
-    __metadata("design:type", Number)
-], Contain.prototype, "quantity", void 0);
-__decorate([
-    (0, typeorm_1.OneToOne)(() => order_entity_1.Order),
+    (0, typeorm_1.ManyToOne)((type) => order_entity_1.Order, {
+        primary: true,
+        onDelete: "CASCADE",
+        onUpdate: "CASCADE",
+    }),
     (0, typeorm_1.JoinColumn)(),
     __metadata("design:type", order_entity_1.Order)
 ], Contain.prototype, "order", void 0);
 __decorate([
-    (0, typeorm_1.OneToOne)(() => dish_entity_1.Dish),
+    (0, typeorm_1.ManyToOne)((type) => dish_entity_1.Dish, {
+        primary: true,
+        onDelete: "CASCADE",
+        onUpdate: "CASCADE",
+    }),
     (0, typeorm_1.JoinColumn)(),
     __metadata("design:type", dish_entity_1.Dish)
 ], Contain.prototype, "dish", void 0);
+__decorate([
+    (0, typeorm_1.Column)(),
+    __metadata("design:type", Number)
+], Contain.prototype, "quantity", void 0);
 Contain = __decorate([
     (0, typeorm_1.Entity)()
 ], Contain);

@@ -8,7 +8,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AdminModule = void 0;
 const contain_service_1 = require("./../../services/contain.service");
-const contain_entity_1 = require("./../../models/contain.entity");
 const order_entity_1 = require("../../models/order.entity");
 const order_service_1 = require("./../../services/order.service");
 const orderManager_controller_1 = require("./orderManager.controller");
@@ -20,6 +19,7 @@ const user_service_1 = require("../../services/user.service");
 const dish_controller_1 = require("./dish.controller");
 const dish_entity_1 = require("../../models/dish.entity");
 const dish_service_1 = require("../../services/dish.service");
+const contain_entity_1 = require("../../models/contain.entity");
 let AdminModule = class AdminModule {
 };
 AdminModule = __decorate([
