@@ -1,7 +1,9 @@
 import { DishService } from "src/services/dish.service";
+import { OrderService } from "src/services/order.service";
 export declare class OrderController {
     private dishService;
-    constructor(dishService: DishService);
+    private orderService;
+    constructor(dishService: DishService, orderService: OrderService);
     index(): Promise<{
         data1: any;
         data2: any;
