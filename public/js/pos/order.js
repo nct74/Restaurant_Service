@@ -217,8 +217,20 @@ $(document).ready(function () {
       }
       resetTotal();
     }
+    function copytext() {
+      var copyText = document.getElementById("myInput");
+
+      /* Select the text field */
+      copyText.select();
+      copyText.setSelectionRange(0, 99999); /* For mobile devices */
+    
+       /* Copy the text inside the text field */
+      navigator.clipboard.writeText(copyText.value);
+      console.log(copyText.value);
+    }
     function fireSweetAlert(data) {
-      Swal.fire('Đây là mã đơn hàng của bạn:', data, 'success');}
+      Swal.fire({title:'<h2>Đây là mã đơn hàng của bạn:</h2>',  html:`<input style="border: 2px solid #E5E5E5 ; font-size:30px;border-radius: 25px; text-align: center; height: 60px; width: 320px;" type="text" value=${data} id="myInput"> <button style="background-color: #E5E5E5; height: 60px;width:120px; font-size:20px; border-radius: 25px;" onclick="copytext()">Copy text</button>`,  icon:'success' , width: '600px',confirmButtonText: '<h2 style="font-size:20px;">OK</h2>',});
+    }
     function Deleteinpayment(id) {
       let i = 0 ;
       let check = 0;
@@ -266,5 +278,6 @@ $(document).ready(function () {
       $.post('/order/addOrder', {arrid: arrid, arrquan:arrquan}, function (data) {
         var a = "aaa";
         fireSweetAlert(a);
+
       })
     }
