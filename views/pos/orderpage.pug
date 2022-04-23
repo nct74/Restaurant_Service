@@ -83,54 +83,19 @@ head
                                         h1.modal-title ADD TO CART
                                         button.close(type='button' data-dismiss='modal' aria-label='Close')
                                             span(aria-hidden='true') &times;
-
-
-
     .cart.col-md-4
         .headSection(style="margin-top:20px; ")
             img(src='/img/cartt.png' alt='cart' style="float:left; width: 40px;border-radius: 10px;" )
-            h3(style="font-size:25px; color:red;") &nbsp;  Your cart
-                span &nbsp; (3)
-        .bodySection(style="float:none; margin-top: 30px; height: 450px;")
-            .foodcard( style='position: relative')
-                .foodcardimage
-                    img(src='/img/cake.png' alt='cart'  style="float:left; width: 60px;border-radius: 10px; margin: 20px 0px 0px 10px;")
-                .foodcardinfor     
-                    h1(style="margin-top:10px;") 1. Cake
-                    button(style="margin-left:20px; float: left;") 
-                        img(src="/img/-.png" style="border-radius: 10px; width: 35px;  border: 1px solid;")
-                    h2(style="float: left; margin-left:10px; margin-top:5px;") 1
-                    button(style="margin-left:10px; float: left;") 
-                        img(src="/img/+.png" style="border-radius: 10px; width: 35px;  border: 1px solid;")
-                    span(style="font-size:25px; color:red; float: right; margin-right:10px;") 10 USD
-            .foodcard( style='position: relative')
-                .foodcardimage
-                    img(src='/img/cake.png' alt='cart'  style="float:left; width: 60px;border-radius: 10px; margin: 20px 0px 0px 10px;")
-                .foodcardinfor     
-                    h1(style="margin-top:10px;") 2. Cake
-                    button(style="margin-left:20px; float: left;") 
-                        img(src="/img/-.png" style="border-radius: 10px; width: 35px;  border: 1px solid;")
-                    h2(style="float: left; margin-left:10px; margin-top:5px;") 1
-                    button(style="margin-left:10px; float: left;") 
-                        img(src="/img/+.png" style="border-radius: 10px; width: 35px;  border: 1px solid;")
-                    span(style="font-size:25px; color:red; float: right; margin-right:10px;") 10 USD
-            .foodcard( style='position: relative')
-                .foodcardimage
-                    img(src='/img/cake.png' alt='cart'  style="float:left; width: 60px;border-radius: 10px; margin: 20px 0px 0px 10px;")
-                .foodcardinfor     
-                    h1(style="margin-top:10px;") 3. Cake
-                    button(style="margin-left:20px; float: left;") 
-                        img(src="/img/-.png" style="border-radius: 10px; width: 35px;  border: 1px solid;")
-                    h2(style="float: left; margin-left:10px; margin-top:5px;") 1
-                    button(style="margin-left:10px; float: left;") 
-                        img(src="/img/+.png" style="border-radius: 10px; width: 35px;  border: 1px solid;")
-                    span(style="font-size:25px; color:red; float: right; margin-right:10px;") 10 USD
+            h3(style="font-size:25px; color:red;") &nbsp;  Your cart:
+                span  0
+        .bodySection(style="float:none; margin-top: 30px; height: 450px; overflow: scroll;")
+
         hr(style='width:100%;text-align:left;margin-left:0')
         .paymentSection(style="boder-top: solid 1px black; ")
             .total(style="margin-top:50px;")
-                span(style="font-size:25px; color:red;") Total 
-                span(style="font-size:25px; color:red; float: right;") 30 USD
-            button.btn(style="font-size: 45px; margin-top: 5rem;  width: 370px; height: 80px; text-align: center; line-height: 0rem; background-color: #FF0000; color: white") Payment
+                span(style="font-size:25px; color:red;") Total: 
+                p(style="font-size:25px; color:red; float: right;") 0 USD
+            button.btn(onclick="Payment()" style="font-size: 45px; margin-top: 5rem;  width: 370px; height: 80px; text-align: center; line-height: 0rem; background-color: #FF0000; color: white") Payment
 
 script(src='/plugins/jquery/jquery.min.js')
 // Bootstrap 4

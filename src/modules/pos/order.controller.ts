@@ -29,11 +29,23 @@ export class OrderController {
 	}
     @Post('/getalldish')
     async getAll(@Body('ma') ma: string) {
-        var list  =  await this.dishService.getdishofftype(ma);
+        if(ma == "All of dish"){
+            var list  =  await this.dishService.getAll();
+        }
+        else 
+            var list  =  await this.dishService.getdishofftype(ma);
         // console.log(ma);
         const viewBag= {
             data: list
         }
         return viewBag;
+    }
+    @Post('/addOrder')
+    async addOrder(@Body('arrid') arrid: Array<void>,@Body('arrquan') arrquan: Array<void>) {
+        // create new Order
+        // ADD data in contain
+        // => go to page payment
+        console.log(arrid);
+        console.log(arrquan);
     }
 }
