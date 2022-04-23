@@ -262,7 +262,9 @@ $(document).ready(function () {
         i++;
       }
       $.post('/order/addOrder', {arrid: arrid, arrquan:arrquan}, function (data) {
-
+        var a = "đâsd";
+        fireSweetAlert(a);
       })
     }
-  
+    function fireSweetAlert(data) {
+      Swal.fire('Bạn đã order thành công!', 'Đây là mã đơn hàng của bạn:', data, 'success');}
