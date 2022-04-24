@@ -11,11 +11,12 @@ import { DishController } from './dish.controller';
 import { Dish } from 'src/models/dish.entity';
 import { DishService } from 'src/services/dish.service';
 import { Contain } from 'src/models/contain.entity';
+import { ContainController } from './contain.controller';
 
 @Module({
 	imports: [TypeOrmModule.forFeature([User, Dish, Order, Contain])],
 	providers: [UserService, DishService, OrderService, ContainService],
-	controllers: [UserController, DishController, OrderManagerController]
+	controllers: [UserController, DishController, OrderManagerController, ContainController]
 })
 
 export class AdminModule { }
