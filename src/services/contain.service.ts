@@ -20,4 +20,10 @@ export class ContainService {
 	async add(contain: Contain): Promise<void> {
 		await this.containRepository.insert(contain);
 	}
+
+	async getListDishByOrderID(orderId: number): Promise<void> {
+		// console.log(typeof (orderId));
+		return await this.containRepository.query(
+			"SELECT dish.name, contain.quantity, dish.price FROM contain, dish WHERE contain.dishId = dish.id AND contain.orderId = '" + orderId + "'")
+	}
 }

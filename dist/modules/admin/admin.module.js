@@ -20,13 +20,14 @@ const dish_controller_1 = require("./dish.controller");
 const dish_entity_1 = require("../../models/dish.entity");
 const dish_service_1 = require("../../services/dish.service");
 const contain_entity_1 = require("../../models/contain.entity");
+const contain_controller_1 = require("./contain.controller");
 let AdminModule = class AdminModule {
 };
 AdminModule = __decorate([
     (0, common_1.Module)({
         imports: [typeorm_1.TypeOrmModule.forFeature([user_entity_1.User, dish_entity_1.Dish, order_entity_1.Order, contain_entity_1.Contain])],
         providers: [user_service_1.UserService, dish_service_1.DishService, order_service_1.OrderService, contain_service_1.ContainService],
-        controllers: [user_controller_1.UserController, dish_controller_1.DishController, orderManager_controller_1.OrderManagerController]
+        controllers: [user_controller_1.UserController, dish_controller_1.DishController, orderManager_controller_1.OrderManagerController, contain_controller_1.ContainController]
     })
 ], AdminModule);
 exports.AdminModule = AdminModule;

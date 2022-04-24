@@ -6,4 +6,5 @@ export declare class OrderService {
     getAll(): Promise<Order[]>;
     add(order: Order): Promise<void>;
     getByOrderId(id: number): Promise<Order>;
+    delete(order: Order): Promise<void>;
 }

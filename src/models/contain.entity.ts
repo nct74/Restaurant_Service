@@ -20,7 +20,6 @@ export class Contain {
 	@JoinColumn()
 	dish: Dish;
 
-
 	@Column()
 	quantity: number;
 }
