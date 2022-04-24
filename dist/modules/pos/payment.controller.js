@@ -9,21 +9,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Payment1Controller = void 0;
+exports.PaymentController = void 0;
 const common_1 = require("@nestjs/common");
-let Payment1Controller = class Payment1Controller {
+let PaymentController = class PaymentController {
     async index() {
     }
 };
 __decorate([
     (0, common_1.Get)(),
-    (0, common_1.Render)("pos/payment1"),
+    (0, common_1.Render)("pos/payment"),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
-], Payment1Controller.prototype, "index", null);
-Payment1Controller = __decorate([
-    (0, common_1.Controller)("payment1")
-], Payment1Controller);
-exports.Payment1Controller = Payment1Controller;
-//# sourceMappingURL=payment1.controller.js.map
+], PaymentController.prototype, "index", null);
+PaymentController = __decorate([
+    (0, common_1.Controller)("payment")
+], PaymentController);
+exports.PaymentController = PaymentController;
+//# sourceMappingURL=payment.controller.js.map

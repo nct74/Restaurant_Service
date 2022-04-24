@@ -148,9 +148,9 @@ flex-wrap: wrap;
 .login-form .card {
    background-color: #D1ECF8;
 }
-.login-form .cardnumber {
+/* .login-form .cardnumber {
     margin-top: 3rem;
- }
+ } */
 .login-form .double-input{
     margin: 3rem 0rem;
     display: flex;
@@ -263,6 +263,7 @@ color: #3794EB !important;
 }
 .page.paymentPage{
     background-color: #ffffff;
+    margin: auto;
 }
 .header .paymentPage{
     border: solid;

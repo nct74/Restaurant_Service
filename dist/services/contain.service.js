@@ -30,6 +30,9 @@ let ContainService = class ContainService {
     async add(contain) {
         await this.containRepository.insert(contain);
     }
+    async addnewcontain(orderid, dishid, quan) {
+        return await this.containRepository.query("INSERT INTO contain (`quantity`, `orderId`, `dishId`) VALUES ('" + quan + "','" + orderid + "','" + dishid + "') ");
+    }
 };
 ContainService = __decorate([
     (0, common_1.Injectable)(),

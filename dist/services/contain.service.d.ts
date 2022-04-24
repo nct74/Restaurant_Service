@@ -6,4 +6,5 @@ export declare class ContainService {
     getAll(): Promise<Contain[]>;
     getByOrderId(id: number): Promise<Contain>;
     add(contain: Contain): Promise<void>;
+    addnewcontain(orderid: number, dishid: number, quan: number): Promise<any>;
 }

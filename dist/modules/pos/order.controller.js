@@ -17,11 +17,12 @@ const order_entity_1 = require("../../models/order.entity");
 const dish_service_1 = require("../../services/dish.service");
 const common_1 = require("@nestjs/common");
 const order_service_1 = require("../../services/order.service");
-const contain_entity_1 = require("../../models/contain.entity");
+const contain_service_1 = require("../../services/contain.service");
 let OrderController = class OrderController {
-    constructor(dishService, orderService) {
+    constructor(dishService, orderService, containService) {
         this.dishService = dishService;
         this.orderService = orderService;
+        this.containService = containService;
     }
     async index() {
         var list = await this.dishService.typeofDish();
@@ -52,22 +53,20 @@ let OrderController = class OrderController {
         };
         return viewBag;
     }
-    async addOrder(arrid, arrquan) {
+    async addOrder(arrid, arrquan, total) {
         var newOrder = new order_entity_1.Order();
+        newOrder.total = total;
         newOrder.id = Math.floor(1000000 + Math.random() * 9000000);
         var getbyID = await this.orderService.getByOrderId(newOrder.id);
         while (getbyID) {
             newOrder.id = Math.floor(1000000 + Math.random() * 9000000);
             getbyID = await this.orderService.getByOrderId(newOrder.id);
         }
-        for (var i = 0; i < arrid.length; i++) {
-            var newContain = new contain_entity_1.Contain();
-            newContain.orderId = newOrder.id;
-            await this.orderService.add(newOrder);
-        }
         await this.orderService.add(newOrder);
-        console.log(arrid);
-        console.log(arrquan);
+        for (var i = 0; i < arrid.length; i++) {
+            await this.containService.addnewcontain(newOrder.id, arrid[i], arrquan[i]);
+        }
+        return newOrder.id;
     }
 };
 __decorate([
@@ -88,13 +87,14 @@ __decorate([
     (0, common_1.Post)('/addOrder'),
     __param(0, (0, common_1.Body)('arrid')),
     __param(1, (0, common_1.Body)('arrquan')),
+    __param(2, (0, common_1.Body)('total')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Array, Array]),
+    __metadata("design:paramtypes", [Array, Array, Number]),
     __metadata("design:returntype", Promise)
 ], OrderController.prototype, "addOrder", null);
 OrderController = __decorate([
     (0, common_1.Controller)("order"),
-    __metadata("design:paramtypes", [dish_service_1.DishService, order_service_1.OrderService])
+    __metadata("design:paramtypes", [dish_service_1.DishService, order_service_1.OrderService, contain_service_1.ContainService])
 ], OrderController);
 exports.OrderController = OrderController;
 //# sourceMappingURL=order.controller.js.map

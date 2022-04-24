@@ -1,0 +1,50 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  link(rel='stylesheet' href='./css/base.css')
+  link(rel='stylesheet' href='./css/homepage.css')
+  title Payment page
+.page.homePage.paymentPage
+  .header.paymentPage
+    .logo
+      a(href='/order')
+        img(src='./img/backarrow.jpg' alt='' srcset='' style="display: inline;float:left;")
+        h1(style="display: inline; float:left; margin-left: 10px;") Back
+    .payment
+      span.paymenttitle Payment
+  .logopayment
+    .PaymentMethod
+        btn
+            img(src='./img/pay1.png' alt='' )
+    .PaymentMethod
+        btn
+            img(src='./img/pay2.png' alt=''  )
+    .PaymentMethod
+        btn
+            img(src='./img/pay3.png' alt='' )
+  div
+    form.login-form.paymentform
+      .user-input.card.cardnumber
+        label(for='cardnumber') Mã Đơn hàng
+        input.username(type='text')
+      .user-input.card.cardname
+        label(for='cardname') Tên 
+        input.username(type='text')
+      .user-input.card.cardnumber
+        label(for='cardnumber') Mã Số Thẻ
+        input.username(type='text')
+      .double-input
+        .user-input.card.ref
+          label(for='date') MM/YY
+          input.username(type='text')
+        .user-input.card.ref
+          label(for='cvv') CVV
+          input.username(type='text')
+  .paymentbtn-1
+    .btn-group
+      a.btn(href='#')
+        | Pay now 
+        span  30$
+script(src="/js/pos/payment.js") 

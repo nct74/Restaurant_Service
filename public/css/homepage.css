@@ -47,22 +47,20 @@ line-height: 59px;
 text-align: center;
 margin-right: 50rem;
 }
-.logopayment {
-    display: inline-block;
 
-}
-.logopayment img {
-    width: 20%;
-}
+
 
 .logopayment {
+display: inline-block;
 font-family: 'Roboto';
 font-style: normal;
 font-weight: 400;
 font-size: 50px;
 line-height: 59px;
 text-align: center;
-padding: 3rem auto;
+margin-left : 180px;
+
+
 }
 
 .homePage .cart{
@@ -253,4 +251,16 @@ button.card-text{
 }
 .img-button-card{
     float:left; width: 40px;border-radius: 10px;
+}
+.PaymentMethod{
+    margin: auto;
+    display: inline;
+    /* background-color: red; */
+    /* height: 207px; */
+
+}
+.PaymentMethod img{
+    /* background-color: red; */
+    width: 280px;
+    height: 207px;
 }

@@ -17,20 +17,21 @@ const dish_entity_1 = require("../../models/dish.entity");
 const paymentfail_controller_1 = require("./paymentfail.controller");
 const entrance_controller_1 = require("./entrance.controller");
 const paymentss_controller_1 = require("./paymentss.controller");
-const payment1_controller_1 = require("./payment1.controller");
+const payment_controller_1 = require("./payment.controller");
 const homepage_controller_1 = require("./homepage.controller");
 const cashier_controller_1 = require("./cashier.controller");
 const forgetps_controller_1 = require("./forgetps.controller");
 const order_service_1 = require("../../services/order.service");
 const order_entity_1 = require("../../models/order.entity");
 const contain_entity_1 = require("../../models/contain.entity");
+const contain_service_1 = require("../../services/contain.service");
 let PosModule = class PosModule {
 };
 PosModule = __decorate([
     (0, common_1.Module)({
         imports: [typeorm_1.TypeOrmModule.forFeature([user_entity_1.User, dish_entity_1.Dish, order_entity_1.Order, contain_entity_1.Contain])],
-        providers: [user_service_1.UserService, dish_service_1.DishService, order_service_1.OrderService],
-        controllers: [order_controller_1.OrderController, paymentfail_controller_1.PaymentFailController, entrance_controller_1.EntranceController, paymentss_controller_1.PaymentSSController, payment1_controller_1.Payment1Controller, homepage_controller_1.HomeController, cashier_controller_1.CashierController, forgetps_controller_1.ForgetpwController]
+        providers: [user_service_1.UserService, dish_service_1.DishService, order_service_1.OrderService, contain_service_1.ContainService],
+        controllers: [order_controller_1.OrderController, paymentfail_controller_1.PaymentFailController, entrance_controller_1.EntranceController, paymentss_controller_1.PaymentSSController, payment_controller_1.PaymentController, homepage_controller_1.HomeController, cashier_controller_1.CashierController, forgetps_controller_1.ForgetpwController]
     })
 ], PosModule);
 exports.PosModule = PosModule;

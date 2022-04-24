@@ -10,11 +10,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Contain = void 0;
-const typeorm_1 = require("typeorm");
-const dish_entity_1 = require("./dish.entity");
 const order_entity_1 = require("./order.entity");
+const dish_entity_1 = require("./dish.entity");
+const typeorm_1 = require("typeorm");
 let Contain = class Contain {
 };
+__decorate([
+    (0, typeorm_1.Column)(),
+    __metadata("design:type", Number)
+], Contain.prototype, "quantity", void 0);
 __decorate([
     (0, typeorm_1.ManyToOne)((type) => order_entity_1.Order, {
         primary: true,
@@ -33,10 +37,6 @@ __decorate([
     (0, typeorm_1.JoinColumn)(),
     __metadata("design:type", dish_entity_1.Dish)
 ], Contain.prototype, "dish", void 0);
-__decorate([
-    (0, typeorm_1.Column)(),
-    __metadata("design:type", Number)
-], Contain.prototype, "quantity", void 0);
 Contain = __decorate([
     (0, typeorm_1.Entity)()
 ], Contain);
