@@ -38,68 +38,68 @@ block content
                         td= index + 1
                         td= orderManager.note
                         td= orderManager.total
-                        if orderManager.orderStatus == 0
-                            td= "Chưa thanh toán"
-                        else if orderManager.orderStatus == 1
+                        if orderManager.orderStatus === true
                             td= "Đã thanh toán"
+                        else if orderManager.orderStatus === false
+                            td= "Chưa thanh toán"
                         td= moment(orderManager.time).subtract(10, 'days').calendar()
                         td.text-center
-                            //- btn.btn-history.btn.btn-danger.btn-xs(style="margin-right: 5px", data-id = student.id, data-last-name = student.lastName, data-first-name = student.firstName, data-count-in-out = student.countInOut)
-                            //-     i.fas.fa-history
+                            btn.btn-detail.btn.btn-danger.btn-xs(style="margin-right: 5px", data-stt = index+1, data-total = orderManager.total, data-order-status = orderManager.orderStatus===true?1:0, data-time = moment(orderManager.time).subtract(10, 'days').calendar())
+                                i.fas.fa-history
                             btn.btn-delete.btn.btn-danger.btn-xs(style="margin-right: 5px", data-id = orderManager.id)
                                 i.fas.fa-trash
                             
-                //- #HistoryStudentModal.modal.fade(role='dialog' aria-labelledby='HistoryStudentModal' aria-hidden='true')
-                //-     .modal-dialog(role='document')
-                //-         .modal-content
-                //-             .modal-header
-                //-                 h5.modal-title Lịch sử ra vào thư viện
-                //-                 button.close(type='button' data-dismiss='modal' aria-label='Close')
-                //-                     span(aria-hidden='true') &times;
-                //-             form
-                //-                 .modal-body
-                //-                     .row 
-                //-                         .col-md-6
-                //-                             .form-group
-                //-                                 label Họ và tên lót
-                //-                                 input.form-control(type='text' placeholder='Họ và tên lót' name = 'lastName', readonly)
-                //-                         .col-md-6
-                //-                             .form-group
-                //-                                 label Tên
-                //-                                 input.form-control(type='text' placeholder='Tên' name = 'firstName', readonly)
-                //-                     .row
-                //-                         .col-md-6
-                //-                             .form-group
-                //-                                 label Mã số SV
-                //-                                 input.form-control(type='text', name = 'id', readonly)
-                //-                         .col-md-6
-                //-                             .form-group
-                //-                                 label Tổng số lượt ra vào
-                //-                                 input.form-control(type='text', name = 'countInOut', readonly)
-                //-                     .row
-                //-                         .col-md-12
-                //-                             table#historyModal.table.table-bordered.table-striped
-                //-                               thead
-                //-                                 tr.text-center
-                //-                                   th Lượt ra vào
-                //-                                   th Thời gian
-                //-                 .modal-footer
-                //-                     button.btn.btn-secondary(type='button' data-dismiss='modal') Đóng lại
+                #DetailOrderManagerModal.modal.fade(role='dialog' aria-labelledby='DetailOrderManagerModal' aria-hidden='true')
+                    .modal-dialog(role='document')
+                        .modal-content
+                            .modal-header
+                                h5.modal-title Thông tin chi tiết đơn hàng
+                                button.close(type='button' data-dismiss='modal' aria-label='Close')
+                                    span(aria-hidden='true') &times;
+                            form
+                                .modal-body
+                                    .row 
+                                        .col-md-6
+                                            .form-group
+                                                label Số thứ tự
+                                                input.form-control(type='text' placeholder='STT' name = 'stt', readonly)
+                                        .col-md-6
+                                            .form-group
+                                                label Tổng số tiền
+                                                input.form-control(type='text' placeholder='Số tiền' name = 'total', readonly)
+                                    .row
+                                        .col-md-6
+                                            .form-group
+                                                label Trạng thái
+                                                input.form-control(type='text', name = 'order-status', readonly)
+                                        .col-md-6
+                                            .form-group
+                                                label Thời gian
+                                                input.form-control(type='text', name = 'time', readonly)
+                                    //- .row
+                                    //-     .col-md-12
+                                    //-         table#historyModal.table.table-bordered.table-striped
+                                    //-           thead
+                                    //-             tr.text-center
+                                    //-               th Lượt ra vào
+                                    //-               th Thời gian
+                                .modal-footer
+                                    button.btn.btn-secondary(type='button' data-dismiss='modal') Đóng lại
 
-                //- #DeleteStudentModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='DeleteStudentModal' aria-hidden='true')
-                //-     .modal-dialog(role='document')
-                //-         .modal-content.bg-danger
-                //-             .modal-header
-                //-                 h5.modal-title Xóa
-                //-                 button.close(type='button' data-dismiss='modal' aria-label='Close')
-                //-                     span(aria-hidden='true') &times;
-                //-             form(action="/student/delete", method = "post")
-                //-                 .modal-body
-                //-                     input(type="hidden", name="id")
-                //-                     p Bạn chắc chưa ?
-                //-                 .modal-footer
-                //-                     button.btn.btn-danger.btn-outline-light(type='button' data-dismiss='modal') Đóng lại
-                //-                     button.btn.btn-danger.btn-outline-light(type='submit') Xác nhận
+                #DeleteOrderManagerModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='DeleteOrderManagerModal' aria-hidden='true')
+                    .modal-dialog(role='document')
+                        .modal-content.bg-danger
+                            .modal-header
+                                h5.modal-title Xóa
+                                button.close(type='button' data-dismiss='modal' aria-label='Close')
+                                    span(aria-hidden='true') &times;
+                            form(action="/orderManager/delete", method = "post")
+                                .modal-body
+                                    input(type="hidden", name="id")
+                                    p Bạn chắc chưa ?
+                                .modal-footer
+                                    button.btn.btn-danger.btn-outline-light(type='button' data-dismiss='modal') Đóng lại
+                                    button.btn.btn-danger.btn-outline-light(type='submit') Xác nhận
               // /.card-body
             // /.card
           // /.col
@@ -114,5 +114,5 @@ block style
     link(rel="stylesheet", href="/plugins/custom/custom.css")
 block script 
     script(src="/plugins/select2/js/select2.full.min.js")
-    script(src="/js/orderManager/index.js")
+    script(src="/js/admin/orderManager/index.js")
     script(src='/plugins/bs-custom-file-input/bs-custom-file-input.min.js')

@@ -1,6 +1,6 @@
-import { Controller, Get, Render } from "@nestjs/common";
+import { Body, Controller, Get, Post, Render, Res } from "@nestjs/common";
 import { OrderService } from "src/services/order.service";
-
+import { Response } from 'express';
 @Controller("orderManager")
 export class OrderManagerController {
 	constructor(private orderService: OrderService) { }
@@ -12,5 +12,11 @@ export class OrderManagerController {
 		return {
 			orderManagerList: orderManagerList
 		};
+	}
+
+	@Post("delete")
+	async delete(@Body() order: any, @Res() res: Response) {
+		await this.orderService.delete(order);
+		res.redirect("/orderManager");
 	}
 }

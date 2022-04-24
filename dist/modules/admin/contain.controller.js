@@ -12,32 +12,31 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.OrderService = void 0;
+exports.ContainController = void 0;
 const common_1 = require("@nestjs/common");
-const typeorm_1 = require("@nestjs/typeorm");
-const order_entity_1 = require("../models/order.entity");
-const typeorm_2 = require("typeorm");
-let OrderService = class OrderService {
-    constructor(orderRepository) {
-        this.orderRepository = orderRepository;
+const contain_service_1 = require("../../services/contain.service");
+let ContainController = class ContainController {
+    constructor(containService) {
+        this.containService = containService;
     }
-    async getAll() {
-        return await this.orderRepository.find();
-    }
-    async add(order) {
-        await this.orderRepository.insert(order);
-    }
-    async getByOrderId(id) {
-        return await this.orderRepository.findOne(id);
-    }
-    async delete(order) {
-        await this.orderRepository.delete(order.id);
+    async getDetail(orderId) {
+        console.log(orderId.orderId);
+        let detailList = await this.containService.getListDishByOrderID(orderId.orderId);
+        console.log("NCT");
+        console.log(detailList);
+        return;
     }
 };
-OrderService = __decorate([
-    (0, common_1.Injectable)(),
-    __param(0, (0, typeorm_1.InjectRepository)(order_entity_1.Order)),
-    __metadata("design:paramtypes", [typeorm_2.Repository])
-], OrderService);
-exports.OrderService = OrderService;
-//# sourceMappingURL=order.service.js.map
+__decorate([
+    (0, common_1.Post)("getDetail"),
+    __param(0, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", Promise)
+], ContainController.prototype, "getDetail", null);
+ContainController = __decorate([
+    (0, common_1.Controller)("contain"),
+    __metadata("design:paramtypes", [contain_service_1.ContainService])
+], ContainController);
+exports.ContainController = ContainController;
+//# sourceMappingURL=contain.controller.js.map
