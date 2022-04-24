@@ -1,9 +1,12 @@
+import { Order } from 'src/models/order.entity';
 
 import { DishService } from "src/services/dish.service";
 import { Controller, Get, Render, Post, Body, Res, UseGuards, Req } from "@nestjs/common";
+import { OrderService } from "src/services/order.service";
+import { Contain } from 'src/models/contain.entity';
 @Controller("order")
 export class OrderController {
-	constructor(private dishService : DishService) { }
+	constructor(private dishService : DishService, private orderService : OrderService) { }
 	@Get()
 	@Render("pos/orderpage")
 	async index() {
@@ -45,6 +48,20 @@ export class OrderController {
         // create new Order
         // ADD data in contain
         // => go to page payment
+        var newOrder = new Order();
+        newOrder.id =Math.floor(1000000 + Math.random() * 9000000);
+        var getbyID = await this.orderService.getByOrderId(newOrder.id);
+        while(getbyID){
+            newOrder.id = Math.floor(1000000 + Math.random() * 9000000);
+            getbyID = await this.orderService.getByOrderId(newOrder.id);
+        }
+        for(var i = 0 ; i < arrid.length ; i++){
+            var newContain = new Contain();
+            // newContain.orderId = newOrder.id;
+            // newContain.dishId = (arrid[i]);
+            await this.orderService.add(newOrder);
+        }
+        await this.orderService.add(newOrder);    
         console.log(arrid);
         console.log(arrquan);
     }
