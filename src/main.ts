@@ -22,6 +22,7 @@ async function bootstrap() {
   app.setBaseViewsDir(join(__dirname, '..', 'views'));
   app.setViewEngine('pug');
   app.use(flash());
+  app.enableCors();
   moment.locale('vi');
   app.setLocal("moment", moment);
   await app.listen(3000);

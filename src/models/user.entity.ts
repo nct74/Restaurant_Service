@@ -13,7 +13,7 @@ export class User {
 	@Column({ nullable: false })
 	cccd: string;
 
-	@Column({ default: UserRole.EMPLOYEE })
+	@Column({ default: UserRole.STAFF })
 	role: number;
 
 	@Column({ default: UserStatus.UNINITIALZED })

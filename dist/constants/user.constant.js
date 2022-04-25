@@ -9,6 +9,7 @@ var UserStatus;
 var UserRole;
 (function (UserRole) {
     UserRole[UserRole["ADMIN"] = 0] = "ADMIN";
-    UserRole[UserRole["EMPLOYEE"] = 1] = "EMPLOYEE";
+    UserRole[UserRole["STAFF"] = 1] = "STAFF";
+    UserRole[UserRole["CUSTORMER"] = 2] = "CUSTORMER";
 })(UserRole = exports.UserRole || (exports.UserRole = {}));
 //# sourceMappingURL=user.constant.js.map

@@ -68,7 +68,7 @@ let DishController = class DishController {
 };
 __decorate([
     (0, common_1.Get)(),
-    (0, roles_decorator_1.Roles)(user_constant_1.UserRole.ADMIN, user_constant_1.UserRole.EMPLOYEE),
+    (0, roles_decorator_1.Roles)(user_constant_1.UserRole.ADMIN, user_constant_1.UserRole.STAFF),
     (0, common_1.UseGuards)((0, passport_1.AuthGuard)('jwt'), roles_guard_1.RoleGuard),
     (0, common_1.Render)("admin/dish/index"),
     __metadata("design:type", Function),
@@ -77,7 +77,7 @@ __decorate([
 ], DishController.prototype, "index", null);
 __decorate([
     (0, common_1.Post)("add"),
-    (0, roles_decorator_1.Roles)(user_constant_1.UserRole.ADMIN, user_constant_1.UserRole.EMPLOYEE),
+    (0, roles_decorator_1.Roles)(user_constant_1.UserRole.ADMIN, user_constant_1.UserRole.STAFF),
     (0, common_1.UseGuards)((0, passport_1.AuthGuard)('jwt'), roles_guard_1.RoleGuard),
     (0, common_1.UseInterceptors)((0, platform_express_1.FileInterceptor)("image", {
         storage: (0, multer_1.diskStorage)({
@@ -97,7 +97,7 @@ __decorate([
 ], DishController.prototype, "add", null);
 __decorate([
     (0, common_1.Post)("edit"),
-    (0, roles_decorator_1.Roles)(user_constant_1.UserRole.ADMIN, user_constant_1.UserRole.EMPLOYEE),
+    (0, roles_decorator_1.Roles)(user_constant_1.UserRole.ADMIN, user_constant_1.UserRole.STAFF),
     (0, common_1.UseGuards)((0, passport_1.AuthGuard)('jwt'), roles_guard_1.RoleGuard),
     (0, common_1.UseInterceptors)((0, platform_express_1.FileInterceptor)("image", {
         storage: (0, multer_1.diskStorage)({
@@ -117,7 +117,7 @@ __decorate([
 ], DishController.prototype, "edit", null);
 __decorate([
     (0, common_1.Get)('getOne'),
-    (0, roles_decorator_1.Roles)(user_constant_1.UserRole.ADMIN, user_constant_1.UserRole.EMPLOYEE),
+    (0, roles_decorator_1.Roles)(user_constant_1.UserRole.ADMIN, user_constant_1.UserRole.STAFF),
     (0, common_1.UseGuards)((0, passport_1.AuthGuard)('jwt'), roles_guard_1.RoleGuard),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
@@ -126,7 +126,7 @@ __decorate([
 ], DishController.prototype, "getOne", null);
 __decorate([
     (0, common_1.Post)('delete'),
-    (0, roles_decorator_1.Roles)(user_constant_1.UserRole.ADMIN, user_constant_1.UserRole.EMPLOYEE),
+    (0, roles_decorator_1.Roles)(user_constant_1.UserRole.ADMIN, user_constant_1.UserRole.STAFF),
     (0, common_1.UseGuards)((0, passport_1.AuthGuard)('jwt'), roles_guard_1.RoleGuard),
     __param(0, (0, common_1.Body)()),
     __param(1, (0, common_1.Res)()),

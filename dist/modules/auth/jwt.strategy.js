@@ -31,14 +31,16 @@ let JwtStrategy = class JwtStrategy extends (0, passport_1.PassportStrategy)(pas
         this.userService = userService;
     }
     async validate(user, accessToken) {
+        console.log(user);
         const newUser = {
             email: user.email,
             accessToken,
-            role: user_constant_1.UserRole.EMPLOYEE,
+            role: user_constant_1.UserRole.STAFF,
         };
         const oldUser = await this.userService.getByUsername(user.email);
+        console.log(oldUser);
         if (oldUser) {
-            if (oldUser.role != user_constant_1.UserRole.EMPLOYEE) {
+            if (oldUser.role != user_constant_1.UserRole.CUSTORMER) {
                 await this.userService.update(user.email, oldUser);
                 user.role = oldUser.role;
             }

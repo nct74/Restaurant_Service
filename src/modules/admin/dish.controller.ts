@@ -18,7 +18,7 @@ export class DishController {
 	constructor(private dishService: DishService) { }
 
 	@Get()
-	@Roles(UserRole.ADMIN, UserRole.EMPLOYEE)
+	@Roles(UserRole.ADMIN, UserRole.STAFF)
 	@UseGuards(AuthGuard('jwt'), RoleGuard)
 	@Render("admin/dish/index")
 	async index() {
@@ -30,7 +30,7 @@ export class DishController {
 	}
 
 	@Post("add")
-	@Roles(UserRole.ADMIN, UserRole.EMPLOYEE)
+	@Roles(UserRole.ADMIN, UserRole.STAFF)
 	@UseGuards(AuthGuard('jwt'), RoleGuard)
 	@UseInterceptors(
 		FileInterceptor("image", {
@@ -62,7 +62,7 @@ export class DishController {
 	}
 
 	@Post("edit")
-	@Roles(UserRole.ADMIN, UserRole.EMPLOYEE)
+	@Roles(UserRole.ADMIN, UserRole.STAFF)
 	@UseGuards(AuthGuard('jwt'), RoleGuard)
 	@UseInterceptors(
 		FileInterceptor("image", {
@@ -99,14 +99,14 @@ export class DishController {
 
 	//Test API Postman
 	@Get('getOne')
-	@Roles(UserRole.ADMIN, UserRole.EMPLOYEE)
+	@Roles(UserRole.ADMIN, UserRole.STAFF)
 	@UseGuards(AuthGuard('jwt'), RoleGuard)
 	async getOne(@Body() id: number): Promise<Dish> {
 		return this.dishService.getOne(id);
 	}
 
 	@Post('delete')
-	@Roles(UserRole.ADMIN, UserRole.EMPLOYEE)
+	@Roles(UserRole.ADMIN, UserRole.STAFF)
 	@UseGuards(AuthGuard('jwt'), RoleGuard)
 	async delete(@Body() dish: Dish, @Res() res: Response) {
 		await this.dishService.delete(dish);

@@ -16,7 +16,6 @@ exports.AuthController = void 0;
 const common_1 = require("@nestjs/common");
 const passport_1 = require("@nestjs/passport");
 const jwt_1 = require("@nestjs/jwt");
-const user_constant_1 = require("../../constants/user.constant");
 const user_service_1 = require("../../services/user.service");
 let AuthController = class AuthController {
     constructor(jwtService, userService) {
@@ -36,8 +35,7 @@ let AuthController = class AuthController {
         let user = await this.userService.getByUsername(username);
         const accessToken = this.jwtService.sign(signedInfo);
         res.cookie('SE', accessToken);
-        if (!user || user.role == user_constant_1.UserRole.EMPLOYEE || user.role == user_constant_1.UserRole.ADMIN)
-            return res.redirect("/dish");
+        return res.redirect("/dish");
     }
     async logout(req, res) {
         res.clearCookie('SE');

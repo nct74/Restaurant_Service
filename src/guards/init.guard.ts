@@ -17,7 +17,7 @@ export class InitGuard implements CanActivate {
 	): boolean | Promise<boolean> | Observable<boolean> {
 		const request: Request = context.switchToHttp().getRequest();
 		const response: Response = context.switchToHttp().getResponse();
-		console.log(request.user["init"]);
+		// console.log(request.user["init"]);
 		if (request.user["init"] === UserStatus.UNINITIALZED) {
 			throw new ForbiddenException("Uninitialized user");
 		}

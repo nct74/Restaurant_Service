@@ -44,7 +44,7 @@ export class AuthController {
     res.cookie('SE', accessToken);
 
     //console.log(user);
-    if (!user || user.role == UserRole.EMPLOYEE || user.role == UserRole.ADMIN)
+    // if (!user || user.role == UserRole.STAFF || user.role == UserRole.ADMIN)
     return res.redirect("/dish");
   }
 

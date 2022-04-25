@@ -27,7 +27,7 @@ __decorate([
     __metadata("design:type", String)
 ], User.prototype, "cccd", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ default: user_constant_1.UserRole.EMPLOYEE }),
+    (0, typeorm_1.Column)({ default: user_constant_1.UserRole.STAFF }),
     __metadata("design:type", Number)
 ], User.prototype, "role", void 0);
 __decorate([

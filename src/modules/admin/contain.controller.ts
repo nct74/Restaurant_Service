@@ -12,7 +12,7 @@ export class ContainController {
 	constructor(private containService: ContainService) { }
 
 	@Post("getDetail")
-	@Roles(UserRole.ADMIN, UserRole.EMPLOYEE)
+	@Roles(UserRole.ADMIN, UserRole.STAFF)
 	@UseGuards(AuthGuard('jwt'), RoleGuard)
 	async getDetail(@Body() orderId: any) {
 		// console.log(orderId.orderId);

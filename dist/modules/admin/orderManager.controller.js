@@ -36,7 +36,7 @@ let OrderManagerController = class OrderManagerController {
 };
 __decorate([
     (0, common_1.Get)(),
-    (0, roles_decorator_1.Roles)(user_constant_1.UserRole.ADMIN),
+    (0, roles_decorator_1.Roles)(user_constant_1.UserRole.ADMIN, user_constant_1.UserRole.STAFF),
     (0, common_1.UseGuards)((0, passport_1.AuthGuard)('jwt'), roles_guard_1.RoleGuard),
     (0, common_1.Render)("admin/orderManager/index"),
     __metadata("design:type", Function),
@@ -45,7 +45,7 @@ __decorate([
 ], OrderManagerController.prototype, "index", null);
 __decorate([
     (0, common_1.Post)("delete"),
-    (0, roles_decorator_1.Roles)(user_constant_1.UserRole.ADMIN, user_constant_1.UserRole.EMPLOYEE),
+    (0, roles_decorator_1.Roles)(user_constant_1.UserRole.ADMIN, user_constant_1.UserRole.STAFF),
     (0, common_1.UseGuards)((0, passport_1.AuthGuard)('jwt'), roles_guard_1.RoleGuard),
     __param(0, (0, common_1.Body)()),
     __param(1, (0, common_1.Res)()),

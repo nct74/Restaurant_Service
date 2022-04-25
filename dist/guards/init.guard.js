@@ -14,7 +14,6 @@ let InitGuard = class InitGuard {
     canActivate(context) {
         const request = context.switchToHttp().getRequest();
         const response = context.switchToHttp().getResponse();
-        console.log(request.user["init"]);
         if (request.user["init"] === user_constant_2.UserStatus.UNINITIALZED) {
             throw new common_1.ForbiddenException("Uninitialized user");
         }

@@ -32,7 +32,7 @@ let ContainController = class ContainController {
 };
 __decorate([
     (0, common_1.Post)("getDetail"),
-    (0, roles_decorator_1.Roles)(user_constant_1.UserRole.ADMIN, user_constant_1.UserRole.EMPLOYEE),
+    (0, roles_decorator_1.Roles)(user_constant_1.UserRole.ADMIN, user_constant_1.UserRole.STAFF),
     (0, common_1.UseGuards)((0, passport_1.AuthGuard)('jwt'), roles_guard_1.RoleGuard),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),

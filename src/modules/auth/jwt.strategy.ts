@@ -22,16 +22,16 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
   }
 
   async validate(user: any, accessToken: string): Promise<any> {
-    // console.log(user);
+    console.log(user);
     const newUser = {
       email: user.email,
       accessToken,
-      role: UserRole.EMPLOYEE,
+      role: UserRole.STAFF,
     };
     const oldUser = await this.userService.getByUsername(user.email);
-
+    console.log(oldUser);
     if (oldUser) {
-      if (oldUser.role != UserRole.EMPLOYEE) {
+      if (oldUser.role != UserRole.CUSTORMER) {
         await this.userService.update(user.email, oldUser);
         user.role = oldUser.role;
       }

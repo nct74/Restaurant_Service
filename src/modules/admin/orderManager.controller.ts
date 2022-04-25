@@ -10,7 +10,7 @@ export class OrderManagerController {
 	constructor(private orderService: OrderService) { }
 
 	@Get()
-	@Roles(UserRole.ADMIN)
+	@Roles(UserRole.ADMIN, UserRole.STAFF)
 	@UseGuards(AuthGuard('jwt'), RoleGuard)
 	@Render("admin/orderManager/index")
 	async index() {
@@ -21,7 +21,7 @@ export class OrderManagerController {
 	}
 
 	@Post("delete")
-	@Roles(UserRole.ADMIN, UserRole.EMPLOYEE)
+	@Roles(UserRole.ADMIN, UserRole.STAFF)
 	@UseGuards(AuthGuard('jwt'), RoleGuard)
 	async delete(@Body() order: any, @Res() res: Response) {
 		await this.orderService.delete(order);

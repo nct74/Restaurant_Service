@@ -4,5 +4,6 @@ export declare enum UserStatus {
 }
 export declare enum UserRole {
     ADMIN = 0,
-    EMPLOYEE = 1
+    STAFF = 1,
+    CUSTORMER = 2
 }

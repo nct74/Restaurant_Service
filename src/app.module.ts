@@ -11,13 +11,15 @@ import { ForbiddenFilter } from './filters/forbidden.filter';
 import { NotFoundFilter } from './filters/notfound.filter';
 import { InternalServerErrorFilter } from './filters/internal.filter';
 import { ExceptionModule } from './modules/exception/exception.module';
+import { ConfigModule } from '@nestjs/config';
 @Module({
-  imports: [TypeOrmModule.forRoot(), AdminModule, AuthModule, PosModule, ExceptionModule],
+  imports: [TypeOrmModule.forRoot(), ConfigModule.forRoot(), AdminModule, AuthModule, PosModule, ExceptionModule],
   controllers: [],
-  providers: [AppService, {
-    provide: APP_FILTER,
-    useClass: UnauthorizedExceptionFilter
-  },
+  providers: [AppService,
+    {
+      provide: APP_FILTER,
+      useClass: UnauthorizedExceptionFilter
+    },
     {
       provide: APP_FILTER,
       useClass: ForbiddenFilter,

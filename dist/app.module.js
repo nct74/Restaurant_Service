@@ -19,13 +19,15 @@ const forbidden_filter_1 = require("./filters/forbidden.filter");
 const notfound_filter_1 = require("./filters/notfound.filter");
 const internal_filter_1 = require("./filters/internal.filter");
 const exception_module_1 = require("./modules/exception/exception.module");
+const config_1 = require("@nestjs/config");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
     (0, common_1.Module)({
-        imports: [typeorm_1.TypeOrmModule.forRoot(), admin_module_1.AdminModule, auth_module_1.AuthModule, pos_module_1.PosModule, exception_module_1.ExceptionModule],
+        imports: [typeorm_1.TypeOrmModule.forRoot(), config_1.ConfigModule.forRoot(), admin_module_1.AdminModule, auth_module_1.AuthModule, pos_module_1.PosModule, exception_module_1.ExceptionModule],
         controllers: [],
-        providers: [app_service_1.AppService, {
+        providers: [app_service_1.AppService,
+            {
                 provide: core_1.APP_FILTER,
                 useClass: unauthorized_exception_filter_1.UnauthorizedExceptionFilter
             },
