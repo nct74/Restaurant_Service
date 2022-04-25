@@ -15,36 +15,48 @@ head
     .payment
       span.paymenttitle Payment
   .logopayment
-    .PaymentMethod
-        btn
-            img(src='./img/pay1.png' alt='' )
-    .PaymentMethod
-        btn
-            img(src='./img/pay2.png' alt=''  )
-    .PaymentMethod
-        btn
-            img(src='./img/pay3.png' alt='' )
-  div
-    form.login-form.paymentform
-      .user-input.card.cardnumber
-        label(for='cardnumber') Mã Đơn hàng
-        input.username(type='text')
-      .user-input.card.cardname
-        label(for='cardname') Tên 
-        input.username(type='text')
-      .user-input.card.cardnumber
-        label(for='cardnumber') Mã Số Thẻ
-        input.username(type='text')
-      .double-input
-        .user-input.card.ref
-          label(for='date') MM/YY
+    .PaymentMethod.pay1
+        btn( onclick="openCity(1)")
+          img(src='./img/pay1.png' alt='' style="background: #E5E5E5" )
+    .PaymentMethod.pay2
+        btn( onclick="openCity(2)")
+          img(src='./img/pay2.png' alt=''  )
+    .PaymentMethod.pay3
+        btn( onclick="openCity(3)")
+          img(src='./img/pay3.png' alt='' )
+  .dataCredit
+    .Credit(style="display: block")
+      form.login-form.paymentform(action="/payment/addpayment" method="post")
+        .user-input.card.cardnumber
+          label(for='cardnumber') Mã Đơn hàng
+          input.username(type='text' name='orderId' )
+        .user-input.card.cardname
+          label(for='cardname') Tên 
           input.username(type='text')
-        .user-input.card.ref
-          label(for='cvv') CVV
+        .user-input.card.cardnumber
+          label(for='cardnumber') Mã Số Thẻ
           input.username(type='text')
-  .paymentbtn-1
-    .btn-group
-      a.btn(href='#')
-        | Pay now 
-        span  30$
+        .double-input
+          .user-input.card.ref
+            label(for='date') MM/YY
+            input.username(type='text')
+          .user-input.card.ref
+            label(for='cvv') CVV
+            input.username(type='text')
+        .paymentbtn-1(style="margin-left:25%;")
+          .btn-group(type='submit')
+            input.btn(type='submit' value="Pay now")
+    .ewallet(style="margin: auto; display:none")
+      h1(style="text-align:center; margin-top:20px; border: 1px solid #ccc;") Quét mã Momo để thanh toán
+      a(href="/paymentss") 
+        img(src="/img/momo.png" style="display: block;margin: auto;")
+    .cash(style="margin: auto; display:none")
+      h1(style="text-align:center;") Bạn vui lòng đến quầy và thanh toán trực Tiếp
+        .paymentbtn-1(style="margin-left:25%;")
+          a(href='paymentss')
+            .btn( style="background: #ccc; margin-left: 50px;")
+              h1(style="text-align:center; font-size:25px; color:red;") Xác nhận thanh toán
+
+//- script(src='/plugins/jquery/jquery.min.js')
+
 script(src="/js/pos/payment.js") 

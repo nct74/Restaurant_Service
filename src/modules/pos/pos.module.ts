@@ -17,10 +17,12 @@ import { OrderService } from "src/services/order.service";
 import { Order } from "src/models/order.entity";
 import { Contain } from "src/models/contain.entity";
 import { ContainService } from "src/services/contain.service";
+import { PaymentService } from "src/services/payment.service";
+import { Payment } from "src/models/payment.entity";
 
 @Module({
-	imports: [TypeOrmModule.forFeature([User,Dish,Order,Contain])],
-	providers: [UserService,DishService,OrderService,ContainService],
+	imports: [TypeOrmModule.forFeature([User,Dish,Order,Contain,Payment])],
+	providers: [UserService,DishService,OrderService,ContainService,PaymentService,],
 	controllers: [OrderController, PaymentFailController,EntranceController,PaymentSSController,PaymentController,HomeController,CashierController,ForgetpwController]
 })
 

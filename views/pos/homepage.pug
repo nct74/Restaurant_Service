@@ -14,9 +14,10 @@ html(lang='en')
           img(src='./img/restaurant-512.webp' alt='' srcset='' style="width:60px; float:left;")
           span.logo-text Home
         .user-login
-          span.login-btn Đăng nhập
+          a(href="login" style=" text-decoration: none;")
+            span.login-btn Đăng nhập
       .title
         | Xin chào quý khách!
       .btn-group
-        a.btn.greencolor(href='#') Order
-        a.btn(href='#') Payment
+        a.btn.greencolor(href='/order') Order
+        a.btn(href='/payment') Payment

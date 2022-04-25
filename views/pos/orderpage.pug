@@ -12,8 +12,9 @@ head
   .container1
     .menu.col-md-8
       .logo
-        img(src='/img/restaurant-512.webp' alt='' srcset='')
-        span.logo-text() Back to home
+        a(href="/home" style=" text-decoration: none;")
+            img(src='/img/restaurant-512.webp' alt='' srcset='')
+            span.logo-text(style="color: black") Back to home
       .scroll
         #carouselExampleIndicators.carousel.slide(data-ride='carousel')
             .carousel-inner  

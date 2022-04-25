@@ -147,7 +147,7 @@ color: black;
     cursor: pointer;
   }
 .paymentsuccess{
-    background-image: url(/img/failed.jpg);
+    background-image: url(/img/payss.png);
     background-repeat: no-repeat;
     background-size: cover;
 }

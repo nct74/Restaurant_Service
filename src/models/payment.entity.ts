@@ -3,6 +3,7 @@ import { Order } from "./order.entity";
 
 @Entity()
 export class Payment {
+
 	@PrimaryGeneratedColumn()
 	id: number;
 
@@ -13,7 +14,7 @@ export class Payment {
 	time: Date;
 
 	@Column()
-	status: string;
+	status: boolean;
 
 	@CreateDateColumn()
 	createAt: Date;
