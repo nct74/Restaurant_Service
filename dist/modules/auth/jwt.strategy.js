@@ -13,27 +13,44 @@ exports.JwtStrategy = void 0;
 const passport_jwt_1 = require("passport-jwt");
 const common_1 = require("@nestjs/common");
 const passport_1 = require("@nestjs/passport");
+const user_constant_1 = require("../../constants/user.constant");
+const user_service_1 = require("../../services/user.service");
 const cookieExtractor = function (req) {
     let token = null;
     if (req && req.cookies)
-        token = req.cookies['LB'];
+        token = req.cookies['SE'];
     return token;
 };
 let JwtStrategy = class JwtStrategy extends (0, passport_1.PassportStrategy)(passport_jwt_1.Strategy) {
-    constructor() {
+    constructor(userService) {
         super({
             jwtFromRequest: passport_jwt_1.ExtractJwt.fromExtractors([cookieExtractor]),
             ignoreExpiration: false,
             secretOrKey: process.env.JWT_SECRET,
         });
+        this.userService = userService;
     }
     async validate(user, accessToken) {
+        console.log(user);
+        const newUser = {
+            email: user.email,
+            accessToken,
+            role: user_constant_1.UserRole.STAFF,
+        };
+        const oldUser = await this.userService.getByUsername(user.email);
+        console.log(oldUser);
+        if (oldUser) {
+            if (oldUser.role != user_constant_1.UserRole.CUSTORMER) {
+                await this.userService.update(user.email, oldUser);
+                user.role = oldUser.role;
+            }
+        }
         return user;
     }
 };
 JwtStrategy = __decorate([
     (0, common_1.Injectable)(),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [user_service_1.UserService])
 ], JwtStrategy);
 exports.JwtStrategy = JwtStrategy;
 //# sourceMappingURL=jwt.strategy.js.map

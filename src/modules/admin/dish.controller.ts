@@ -1,9 +1,13 @@
-import { Body, Controller, Get, Post, Query, Render, Res, UploadedFile, UseInterceptors } from "@nestjs/common";
+import { RoleGuard } from './../../guards/roles.guard';
+import { Body, Controller, Get, Post, Query, Render, Res, UploadedFile, UseGuards, UseInterceptors } from "@nestjs/common";
 import { FileInterceptor } from "@nestjs/platform-express";
 import { diskStorage } from "multer";
 import { Dish } from "src/models/dish.entity";
 import { Response } from 'express';
 import { DishService } from "src/services/dish.service";
+import { UserRole } from "src/constants/user.constant";
+import { Roles } from "src/decorators/roles.decorator";
+import { AuthGuard } from "@nestjs/passport";
 
 declare global {
 	var img: string;
@@ -14,6 +18,8 @@ export class DishController {
 	constructor(private dishService: DishService) { }
 
 	@Get()
+	@Roles(UserRole.ADMIN, UserRole.STAFF)
+	@UseGuards(AuthGuard('jwt'), RoleGuard)
 	@Render("admin/dish/index")
 	async index() {
 		const dishList = await this.dishService.getAll();
@@ -24,6 +30,8 @@ export class DishController {
 	}
 
 	@Post("add")
+	@Roles(UserRole.ADMIN, UserRole.STAFF)
+	@UseGuards(AuthGuard('jwt'), RoleGuard)
 	@UseInterceptors(
 		FileInterceptor("image", {
 			storage: diskStorage({
@@ -48,12 +56,14 @@ export class DishController {
 		addDish.type = dish.type;
 		addDish.image = "upload/" + global.img
 		// dish.image = "upload/" + global.img
-		console.log(addDish);
+		// console.log(addDish);
 		await this.dishService.add(addDish);
 		return res.redirect("/dish");
 	}
 
 	@Post("edit")
+	@Roles(UserRole.ADMIN, UserRole.STAFF)
+	@UseGuards(AuthGuard('jwt'), RoleGuard)
 	@UseInterceptors(
 		FileInterceptor("image", {
 			storage: diskStorage({
@@ -82,17 +92,22 @@ export class DishController {
 			var oldDish = this.getOne(dish.id);
 			editDish.image = (await oldDish).image;
 		} else editDish.image = "upload/" + global.img;
-		console.log(editDish);
+		// console.log(editDish);
 		await this.dishService.edit(editDish);
 		return res.redirect("/dish");
 	}
 
+	//Test API Postman
 	@Get('getOne')
+	@Roles(UserRole.ADMIN, UserRole.STAFF)
+	@UseGuards(AuthGuard('jwt'), RoleGuard)
 	async getOne(@Body() id: number): Promise<Dish> {
 		return this.dishService.getOne(id);
 	}
 
 	@Post('delete')
+	@Roles(UserRole.ADMIN, UserRole.STAFF)
+	@UseGuards(AuthGuard('jwt'), RoleGuard)
 	async delete(@Body() dish: Dish, @Res() res: Response) {
 		await this.dishService.delete(dish);
 		return res.redirect("/dish");

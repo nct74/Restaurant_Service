@@ -22,7 +22,6 @@ export class ContainService {
 	}
 
 	async getListDishByOrderID(orderId: number): Promise<void> {
-		// console.log(typeof (orderId));
 		return await this.containRepository.query(
 			"SELECT dish.name, contain.quantity, dish.price FROM contain, dish WHERE contain.dishId = dish.id AND contain.orderId = '" + orderId + "'")
 	}

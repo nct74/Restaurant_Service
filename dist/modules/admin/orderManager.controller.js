@@ -15,6 +15,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.OrderManagerController = void 0;
 const common_1 = require("@nestjs/common");
 const order_service_1 = require("../../services/order.service");
+const roles_decorator_1 = require("../../decorators/roles.decorator");
+const user_constant_1 = require("../../constants/user.constant");
+const passport_1 = require("@nestjs/passport");
+const roles_guard_1 = require("../../guards/roles.guard");
 let OrderManagerController = class OrderManagerController {
     constructor(orderService) {
         this.orderService = orderService;
@@ -32,6 +36,8 @@ let OrderManagerController = class OrderManagerController {
 };
 __decorate([
     (0, common_1.Get)(),
+    (0, roles_decorator_1.Roles)(user_constant_1.UserRole.ADMIN, user_constant_1.UserRole.STAFF),
+    (0, common_1.UseGuards)((0, passport_1.AuthGuard)('jwt'), roles_guard_1.RoleGuard),
     (0, common_1.Render)("admin/orderManager/index"),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
@@ -39,6 +45,8 @@ __decorate([
 ], OrderManagerController.prototype, "index", null);
 __decorate([
     (0, common_1.Post)("delete"),
+    (0, roles_decorator_1.Roles)(user_constant_1.UserRole.ADMIN, user_constant_1.UserRole.STAFF),
+    (0, common_1.UseGuards)((0, passport_1.AuthGuard)('jwt'), roles_guard_1.RoleGuard),
     __param(0, (0, common_1.Body)()),
     __param(1, (0, common_1.Res)()),
     __metadata("design:type", Function),

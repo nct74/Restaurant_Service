@@ -8,4 +8,6 @@ export declare class UserService {
     add(user: User): Promise<void>;
     edit(user: any): Promise<void>;
     delete(user: User): Promise<void>;
+    save(user: User): Promise<void>;
+    update(email: string, user: User): Promise<void>;
 }
