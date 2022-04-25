@@ -1,9 +1,8 @@
 
-INSERT INTO `user` (`username`, `password`, `cccd`, `role`, `createAt`, `updateAt`) VALUES
-('admin1', 'admin1', '12345', 1, '2022-04-11 15:12:47.000000', '2022-04-11 15:12:47.000000'),
-('admin2', 'admin2', '12345', 1, '2022-04-11 15:12:47.000000', '2022-04-11 15:12:47.000000'),
-('staff1', 'staff1', '12345', 0, '2022-04-11 15:12:47.000000', '2022-04-11 15:12:47.000000'),
-('staff2', 'staff2', '11245', 0, '2022-04-11 15:12:47.000000', '2022-04-11 15:12:47.000000');
+INSERT INTO `user`(`username`, `password`, `cccd`, `role`, `init`, `createAt`, `updateAt`) VALUES ('staff1','staff1','12345','1', '0', NOW(), NOW());
+INSERT INTO `user`(`username`, `password`, `cccd`, `role`, `init`, `createAt`, `updateAt`) VALUES ('staff2','staff2','11245','1', '0', NOW(), NOW());
+INSERT INTO `user`(`username`, `password`, `cccd`, `role`, `init`, `createAt`, `updateAt`) VALUES ('admin1','admin1','12345','0', '0', NOW(), NOW());
+INSERT INTO `user`(`username`, `password`, `cccd`, `role`, `init`, `createAt`, `updateAt`) VALUES ('admin2','admin2','12345','0', '0', NOW(), NOW());
 
 INSERT INTO `dish` (`id`, `name`, `price`, `info_detail`, `image`, `type`, `createAt`, `updateAt`) VALUES
 (1, 'milktea', 10000, 'ngon lam ne', '/img/milktea.png', 'thuc uong', '2022-04-11 15:12:47.000000', '2022-04-12 01:16:06.218112'),

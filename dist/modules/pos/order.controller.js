@@ -64,7 +64,12 @@ let OrderController = class OrderController {
         }
         await this.orderService.add(newOrder);
         for (var i = 0; i < arrid.length; i++) {
+<<<<<<< HEAD
             await this.containService.addnewcontain(newOrder.id, arrid[i], arrquan[i]);
+=======
+            var newContain = new contain_entity_1.Contain();
+            await this.orderService.add(newOrder);
+>>>>>>> main
         }
         return newOrder.id;
     }

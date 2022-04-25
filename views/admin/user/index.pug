@@ -47,8 +47,8 @@ block content
                                         label Vai trò trên hệ thống 
                                         select#sel-role.form-control.select2(name="role", style="width: 100%;", required)
                                             option
-                                            option(value=0) Nhân viên
-                                            option(value=1) Quản trị viên
+                                            option(value=0) Quản trị viên
+                                            option(value=1) Nhân viên
                                 .modal-footer
                                     button.btn.btn-secondary(type='button' data-dismiss='modal') Đóng lại
                                     button.btn.btn-primary(type='submit') Thêm mới
@@ -71,9 +71,9 @@ block content
                                 td=index + 1
                                 td=user.username
                                 td=user.cccd
-                                if user.role==0
+                                if user.role==1
                                   td='Nhân viên'
-                                else if user.role == 1
+                                else if user.role == 0
                                   td='Quản trị viên'
                                 //- if user.role==UserRole.ADMIN
                                 //-   td= "Admin"
@@ -109,8 +109,8 @@ block content
                                         label Vai trò trên hệ thống 
                                         select#sel-role-foredit.form-control.select2(name="role", style="width: 100%;", required)
                                             option
-                                            option(value=0) Nhân viên
-                                            option(value=1) Quản trị viên
+                                            option(value=1) Nhân viên
+                                            option(value=0) Quản trị viên
                                 .modal-footer
                                     button.btn.btn-secondary(type='button' data-dismiss='modal') Đóng lại
                                     button.btn.btn-primary(type='submit') Cập nhật

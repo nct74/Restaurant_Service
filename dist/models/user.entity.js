@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.User = void 0;
+const user_constant_1 = require("../constants/user.constant");
 const typeorm_1 = require("typeorm");
 let User = class User {
 };
@@ -26,9 +27,13 @@ __decorate([
     __metadata("design:type", String)
 ], User.prototype, "cccd", void 0);
 __decorate([
-    (0, typeorm_1.Column)(),
+    (0, typeorm_1.Column)({ default: user_constant_1.UserRole.STAFF }),
     __metadata("design:type", Number)
 ], User.prototype, "role", void 0);
+__decorate([
+    (0, typeorm_1.Column)({ default: user_constant_1.UserStatus.UNINITIALZED }),
+    __metadata("design:type", Number)
+], User.prototype, "init", void 0);
 __decorate([
     (0, typeorm_1.CreateDateColumn)(),
     __metadata("design:type", Date)

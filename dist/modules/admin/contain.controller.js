@@ -14,21 +14,26 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ContainController = void 0;
 const common_1 = require("@nestjs/common");
+const passport_1 = require("@nestjs/passport");
+const user_constant_1 = require("../../constants/user.constant");
+const roles_decorator_1 = require("../../decorators/roles.decorator");
+const roles_guard_1 = require("../../guards/roles.guard");
 const contain_service_1 = require("../../services/contain.service");
 let ContainController = class ContainController {
     constructor(containService) {
         this.containService = containService;
     }
     async getDetail(orderId) {
-        console.log(orderId.orderId);
         let detailList = await this.containService.getListDishByOrderID(orderId.orderId);
-        console.log("NCT");
-        console.log(detailList);
-        return;
+        return {
+            detailList: detailList
+        };
     }
 };
 __decorate([
     (0, common_1.Post)("getDetail"),
+    (0, roles_decorator_1.Roles)(user_constant_1.UserRole.ADMIN, user_constant_1.UserRole.STAFF),
+    (0, common_1.UseGuards)((0, passport_1.AuthGuard)('jwt'), roles_guard_1.RoleGuard),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),

@@ -3,6 +3,7 @@ export declare class User {
     password: string;
     cccd: string;
     role: number;
+    init: number;
     createAt: Date;
     updateAt: Date;
 }

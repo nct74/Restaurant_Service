@@ -44,7 +44,7 @@ block content
                             td= "Chưa thanh toán"
                         td= moment(orderManager.time).subtract(10, 'days').calendar()
                         td.text-center
-                            btn.btn-detail.btn.btn-danger.btn-xs(style="margin-right: 5px", data-stt = index+1, data-total = orderManager.total, data-order-status = orderManager.orderStatus===true?1:0, data-time = moment(orderManager.time).subtract(10, 'days').calendar())
+                            btn.btn-detail.btn.btn-danger.btn-xs(style="margin-right: 5px", data-order-id = orderManager.id data-stt = index+1, data-total = orderManager.total, data-order-status = orderManager.orderStatus===true?1:0, data-time = moment(orderManager.time).subtract(10, 'days').calendar())
                                 i.fas.fa-history
                             btn.btn-delete.btn.btn-danger.btn-xs(style="margin-right: 5px", data-id = orderManager.id)
                                 i.fas.fa-trash
@@ -76,13 +76,14 @@ block content
                                             .form-group
                                                 label Thời gian
                                                 input.form-control(type='text', name = 'time', readonly)
-                                    //- .row
-                                    //-     .col-md-12
-                                    //-         table#historyModal.table.table-bordered.table-striped
-                                    //-           thead
-                                    //-             tr.text-center
-                                    //-               th Lượt ra vào
-                                    //-               th Thời gian
+                                    .row
+                                        .col-md-12
+                                            table#detailModal.table.table-bordered.table-striped
+                                              thead
+                                                tr.text-center
+                                                  th Tên sản phẩm
+                                                  th Số lượng 
+                                                  th Đơn giá
                                 .modal-footer
                                     button.btn.btn-secondary(type='button' data-dismiss='modal') Đóng lại
 

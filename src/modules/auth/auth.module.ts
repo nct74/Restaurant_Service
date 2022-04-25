@@ -25,7 +25,7 @@ import { UserService } from 'src/services/user.service';
     }),
 
   ],
-  providers: [JwtStrategy,LocalStrategy,UserService],
+  providers: [JwtStrategy, LocalStrategy, UserService],
   controllers: [AuthController],
 })
-export class AuthModule {}
+export class AuthModule { }
