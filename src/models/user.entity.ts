@@ -1,3 +1,4 @@
+import { UserRole, UserStatus } from "src/constants/user.constant";
 import { Column, CreateDateColumn, Entity, JoinTable, ManyToMany, PrimaryColumn, UpdateDateColumn } from "typeorm";
 import { Dish } from "./dish.entity";
 
@@ -12,8 +13,11 @@ export class User {
 	@Column({ nullable: false })
 	cccd: string;
 
-	@Column()
+	@Column({ default: UserRole.EMPLOYEE })
 	role: number;
+
+	@Column({ default: UserStatus.UNINITIALZED })
+	init: number;
 
 	@CreateDateColumn()
 	createAt: Date;

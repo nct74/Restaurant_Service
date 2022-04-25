@@ -15,16 +15,32 @@ const auth_module_1 = require("./modules/auth/auth.module");
 const unauthorized_exception_filter_1 = require("./filters/unauthorized-exception.filter");
 const core_1 = require("@nestjs/core");
 const pos_module_1 = require("./modules/pos/pos.module");
+const forbidden_filter_1 = require("./filters/forbidden.filter");
+const notfound_filter_1 = require("./filters/notfound.filter");
+const internal_filter_1 = require("./filters/internal.filter");
+const exception_module_1 = require("./modules/exception/exception.module");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
     (0, common_1.Module)({
-        imports: [typeorm_1.TypeOrmModule.forRoot(), admin_module_1.AdminModule, auth_module_1.AuthModule, pos_module_1.PosModule],
+        imports: [typeorm_1.TypeOrmModule.forRoot(), admin_module_1.AdminModule, auth_module_1.AuthModule, pos_module_1.PosModule, exception_module_1.ExceptionModule],
         controllers: [],
         providers: [app_service_1.AppService, {
                 provide: core_1.APP_FILTER,
                 useClass: unauthorized_exception_filter_1.UnauthorizedExceptionFilter
-            }],
+            },
+            {
+                provide: core_1.APP_FILTER,
+                useClass: forbidden_filter_1.ForbiddenFilter,
+            },
+            {
+                provide: core_1.APP_FILTER,
+                useClass: notfound_filter_1.NotFoundFilter,
+            },
+            {
+                provide: core_1.APP_FILTER,
+                useClass: internal_filter_1.InternalServerErrorFilter,
+            },],
     })
 ], AppModule);
 exports.AppModule = AppModule;

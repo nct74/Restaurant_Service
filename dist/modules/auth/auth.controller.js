@@ -14,7 +14,9 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AuthController = void 0;
 const common_1 = require("@nestjs/common");
+const passport_1 = require("@nestjs/passport");
 const jwt_1 = require("@nestjs/jwt");
+const user_constant_1 = require("../../constants/user.constant");
 const user_service_1 = require("../../services/user.service");
 let AuthController = class AuthController {
     constructor(jwtService, userService) {
@@ -30,12 +32,15 @@ let AuthController = class AuthController {
     }
     async login(req, res) {
         const signedInfo = req.user;
+        const username = req.user["username"];
+        let user = await this.userService.getByUsername(username);
         const accessToken = this.jwtService.sign(signedInfo);
-        res.cookie('LB', accessToken);
-        res.redirect('hocviencourselist');
+        res.cookie('SE', accessToken);
+        if (!user || user.role == user_constant_1.UserRole.EMPLOYEE || user.role == user_constant_1.UserRole.ADMIN)
+            return res.redirect("/dish");
     }
     async logout(req, res) {
-        res.clearCookie('LB');
+        res.clearCookie('SE');
         return res.redirect('/login');
     }
 };
@@ -49,6 +54,7 @@ __decorate([
 ], AuthController.prototype, "loginPage", null);
 __decorate([
     (0, common_1.Post)('login'),
+    (0, common_1.UseGuards)((0, passport_1.AuthGuard)('local')),
     __param(0, (0, common_1.Req)()),
     __param(1, (0, common_1.Res)()),
     __metadata("design:type", Function),

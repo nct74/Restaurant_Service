@@ -1,9 +1,9 @@
 use se_restaurant;
 
-INSERT INTO `user`(`username`, `password`, `cccd`, `role`, `createAt`, `updateAt`) VALUES ('staff1','staff1','12345','0', NOW(), NOW());
-INSERT INTO `user`(`username`, `password`, `cccd`, `role`, `createAt`, `updateAt`) VALUES ('staff2','staff2','11245','0', NOW(), NOW());
-INSERT INTO `user`(`username`, `password`, `cccd`, `role`, `createAt`, `updateAt`) VALUES ('admin1','admin1','12345','1', NOW(), NOW());
-INSERT INTO `user`(`username`, `password`, `cccd`, `role`, `createAt`, `updateAt`) VALUES ('admin2','admin2','12345','1', NOW(), NOW());
+INSERT INTO `user`(`username`, `password`, `cccd`, `role`, `init`, `createAt`, `updateAt`) VALUES ('staff1','staff1','12345','1', '0', NOW(), NOW());
+INSERT INTO `user`(`username`, `password`, `cccd`, `role`, `init`, `createAt`, `updateAt`) VALUES ('staff2','staff2','11245','1', '0', NOW(), NOW());
+INSERT INTO `user`(`username`, `password`, `cccd`, `role`, `init`, `createAt`, `updateAt`) VALUES ('admin1','admin1','12345','0', '0', NOW(), NOW());
+INSERT INTO `user`(`username`, `password`, `cccd`, `role`, `init`, `createAt`, `updateAt`) VALUES ('admin2','admin2','12345','0', '0', NOW(), NOW());
 
 INSERT INTO `dish` (`id`, `name`, `price`, `info_detail`, `image`, `type`, `createAt`, `updateAt`) VALUES
 (9, 'Mochi', 33000, 'This is the best cake of our restaurant!!', 'upload/Mochi25000-1649673708294.jpg', 'Cake', '2022-04-11 16:55:48.985935', '2022-04-11 17:41:48.000000'),

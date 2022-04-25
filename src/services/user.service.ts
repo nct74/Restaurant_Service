@@ -27,4 +27,13 @@ export class UserService {
 	async delete(user: User): Promise<void> {
 		await this.userRepository.delete(user.username);
 	}
+
+	//Use 2 function below for authenticaion and authorization
+	async save(user: User): Promise<void> { //save = update + insert
+		await this.userRepository.save(user);
+	}
+
+	async update(email: string, user: User): Promise<void> { //google.strategy call
+		await this.userRepository.update(email, user);
+	}
 }

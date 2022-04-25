@@ -17,6 +17,10 @@ const user_entity_1 = require("../../models/user.entity");
 const common_1 = require("@nestjs/common");
 const bcrypt = require("bcrypt");
 const user_service_1 = require("../../services/user.service");
+const roles_decorator_1 = require("../../decorators/roles.decorator");
+const user_constant_1 = require("../../constants/user.constant");
+const passport_1 = require("@nestjs/passport");
+const roles_guard_1 = require("../../guards/roles.guard");
 let UserController = class UserController {
     constructor(userService) {
         this.userService = userService;
@@ -38,9 +42,9 @@ let UserController = class UserController {
         userToEdit.username = user.username;
         userToEdit.password = user.password;
         userToEdit.cccd = user.cccd;
+        userToEdit.role = user.role;
         const salt = await bcrypt.genSalt(15);
         userToEdit.password = await bcrypt.hash(userToEdit.password, salt);
-        console.log(userToEdit);
         await this.userService.edit(userToEdit);
         res.redirect("/user");
     }
@@ -51,6 +55,8 @@ let UserController = class UserController {
 };
 __decorate([
     (0, common_1.Get)(),
+    (0, roles_decorator_1.Roles)(user_constant_1.UserRole.ADMIN),
+    (0, common_1.UseGuards)((0, passport_1.AuthGuard)('jwt'), roles_guard_1.RoleGuard),
     (0, common_1.Render)("admin/user/index"),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
@@ -58,6 +64,8 @@ __decorate([
 ], UserController.prototype, "index", null);
 __decorate([
     (0, common_1.Post)("add"),
+    (0, roles_decorator_1.Roles)(user_constant_1.UserRole.ADMIN),
+    (0, common_1.UseGuards)((0, passport_1.AuthGuard)('jwt'), roles_guard_1.RoleGuard),
     __param(0, (0, common_1.Body)()),
     __param(1, (0, common_1.Res)()),
     __metadata("design:type", Function),
@@ -66,6 +74,8 @@ __decorate([
 ], UserController.prototype, "add", null);
 __decorate([
     (0, common_1.Post)("edit"),
+    (0, roles_decorator_1.Roles)(user_constant_1.UserRole.ADMIN),
+    (0, common_1.UseGuards)((0, passport_1.AuthGuard)('jwt'), roles_guard_1.RoleGuard),
     __param(0, (0, common_1.Body)()),
     __param(1, (0, common_1.Res)()),
     __metadata("design:type", Function),
@@ -74,6 +84,8 @@ __decorate([
 ], UserController.prototype, "edit", null);
 __decorate([
     (0, common_1.Post)("delete"),
+    (0, roles_decorator_1.Roles)(user_constant_1.UserRole.ADMIN),
+    (0, common_1.UseGuards)((0, passport_1.AuthGuard)('jwt'), roles_guard_1.RoleGuard),
     __param(0, (0, common_1.Body)()),
     __param(1, (0, common_1.Res)()),
     __metadata("design:type", Function),

@@ -18,13 +18,12 @@ const user_service_1 = require("../../services/user.service");
 let LocalStrategy = class LocalStrategy extends (0, passport_1.PassportStrategy)(passport_local_1.Strategy) {
     constructor(userservice) {
         super({
-            usernameField: 'email'
+            usernameField: 'username'
         });
         this.userservice = userservice;
     }
     async validate(username, password) {
         const user = await this.userservice.getByUsername(username);
-        console.log(user);
         if (!user)
             throw new common_1.UnauthorizedException("Không tồn tại tài khoản này");
         if (!(await bcrypt.compare(password, user.password)))

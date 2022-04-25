@@ -13,11 +13,15 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.DishController = void 0;
+const roles_guard_1 = require("./../../guards/roles.guard");
 const common_1 = require("@nestjs/common");
 const platform_express_1 = require("@nestjs/platform-express");
 const multer_1 = require("multer");
 const dish_entity_1 = require("../../models/dish.entity");
 const dish_service_1 = require("../../services/dish.service");
+const user_constant_1 = require("../../constants/user.constant");
+const roles_decorator_1 = require("../../decorators/roles.decorator");
+const passport_1 = require("@nestjs/passport");
 let DishController = class DishController {
     constructor(dishService) {
         this.dishService = dishService;
@@ -35,7 +39,6 @@ let DishController = class DishController {
         addDish.info_detail = dish.info_detail;
         addDish.type = dish.type;
         addDish.image = "upload/" + global.img;
-        console.log(addDish);
         await this.dishService.add(addDish);
         return res.redirect("/dish");
     }
@@ -52,7 +55,6 @@ let DishController = class DishController {
         }
         else
             editDish.image = "upload/" + global.img;
-        console.log(editDish);
         await this.dishService.edit(editDish);
         return res.redirect("/dish");
     }
@@ -66,6 +68,8 @@ let DishController = class DishController {
 };
 __decorate([
     (0, common_1.Get)(),
+    (0, roles_decorator_1.Roles)(user_constant_1.UserRole.ADMIN, user_constant_1.UserRole.EMPLOYEE),
+    (0, common_1.UseGuards)((0, passport_1.AuthGuard)('jwt'), roles_guard_1.RoleGuard),
     (0, common_1.Render)("admin/dish/index"),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
@@ -73,6 +77,8 @@ __decorate([
 ], DishController.prototype, "index", null);
 __decorate([
     (0, common_1.Post)("add"),
+    (0, roles_decorator_1.Roles)(user_constant_1.UserRole.ADMIN, user_constant_1.UserRole.EMPLOYEE),
+    (0, common_1.UseGuards)((0, passport_1.AuthGuard)('jwt'), roles_guard_1.RoleGuard),
     (0, common_1.UseInterceptors)((0, platform_express_1.FileInterceptor)("image", {
         storage: (0, multer_1.diskStorage)({
             destination: "./public/upload",
@@ -91,6 +97,8 @@ __decorate([
 ], DishController.prototype, "add", null);
 __decorate([
     (0, common_1.Post)("edit"),
+    (0, roles_decorator_1.Roles)(user_constant_1.UserRole.ADMIN, user_constant_1.UserRole.EMPLOYEE),
+    (0, common_1.UseGuards)((0, passport_1.AuthGuard)('jwt'), roles_guard_1.RoleGuard),
     (0, common_1.UseInterceptors)((0, platform_express_1.FileInterceptor)("image", {
         storage: (0, multer_1.diskStorage)({
             destination: "./public/upload",
@@ -109,6 +117,8 @@ __decorate([
 ], DishController.prototype, "edit", null);
 __decorate([
     (0, common_1.Get)('getOne'),
+    (0, roles_decorator_1.Roles)(user_constant_1.UserRole.ADMIN, user_constant_1.UserRole.EMPLOYEE),
+    (0, common_1.UseGuards)((0, passport_1.AuthGuard)('jwt'), roles_guard_1.RoleGuard),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Number]),
@@ -116,6 +126,8 @@ __decorate([
 ], DishController.prototype, "getOne", null);
 __decorate([
     (0, common_1.Post)('delete'),
+    (0, roles_decorator_1.Roles)(user_constant_1.UserRole.ADMIN, user_constant_1.UserRole.EMPLOYEE),
+    (0, common_1.UseGuards)((0, passport_1.AuthGuard)('jwt'), roles_guard_1.RoleGuard),
     __param(0, (0, common_1.Body)()),
     __param(1, (0, common_1.Res)()),
     __metadata("design:type", Function),
