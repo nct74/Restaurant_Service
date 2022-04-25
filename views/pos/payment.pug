@@ -6,7 +6,7 @@ head
   link(rel='stylesheet' href='./css/base.css')
   link(rel='stylesheet' href='./css/homepage.css')
   title Payment page
-.page.homePage.paymentPage
+.page.homePage.paymentPage(style="background-image: url(/img/bgorrder.jpg); background-repeat: no-repeat;background-size: cover; background-size: 1200px 100vh; opacity:0.9")
   .header.paymentPage
     .logo
       a(href='/order')
@@ -14,17 +14,17 @@ head
         h1(style="display: inline; float:left; margin-left: 10px;") Back
     .payment
       span.paymenttitle Payment
-  .logopayment
+  .logopayment(style="opacity:0.8; margin-top:50px;")
     .PaymentMethod.pay1
         btn( onclick="openCity(1)")
           img(src='./img/pay1.png' alt='' style="background: #E5E5E5" )
     .PaymentMethod.pay2
-        btn( onclick="openCity(2)")
-          img(src='./img/pay2.png' alt=''  )
+        btn( onclick="openCity(2)" )
+          img(src='./img/pay2.png' alt='' style="background: white" )
     .PaymentMethod.pay3
         btn( onclick="openCity(3)")
-          img(src='./img/pay3.png' alt='' )
-  .dataCredit
+          img(src='./img/pay3.png' alt='' style="background: white")
+  .dataCredit(style="opacity:0.9")
     .Credit(style="display: block")
       form.login-form.paymentform(action="/payment/addpayment" method="post")
         .user-input.card.cardnumber
@@ -46,12 +46,12 @@ head
         .paymentbtn-1(style="margin-left:25%;")
           .btn-group(type='submit')
             input.btn(type='submit' value="Pay now")
-    .ewallet(style="margin: auto; display:none")
-      h1(style="text-align:center; margin-top:20px; border: 1px solid #ccc;") Quét mã Momo để thanh toán
+    .ewallet(style="margin: auto; display:none;opacity:0.9")
+      h1(style="text-align:center; margin-top:10px; margin-bottom:10px; color: white") Quét mã Momo để thanh toán
       a(href="/paymentss") 
         img(src="/img/momo.png" style="display: block;margin: auto;")
-    .cash(style="margin: auto; display:none")
-      h1(style="text-align:center;") Bạn vui lòng đến quầy và thanh toán trực Tiếp
+    .cash(style="margin: auto; display:none;opacity:0.9")
+      h1(style="text-align:center;color: white;margin-top:20px;") Bạn vui lòng đến quầy và thanh toán trực Tiếp
         .paymentbtn-1(style="margin-left:25%;")
           a(href='paymentss')
             .btn( style="background: #ccc; margin-left: 50px;")

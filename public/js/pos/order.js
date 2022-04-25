@@ -17,7 +17,7 @@ $(document).ready(function () {
                       <img class="card-img-top" src=${list[i].image} alt='Card image cap' >
                       <div class="card-body-top" >
                           <hr class="hr-img-top">
-                          <h2 class="card-title">${list[i].id}.  ${list[i].name}
+                          <h3 class="card-title">${list[i].id}.  ${list[i].name}
                           <hr class="hr-img-top">
   
                           <h2 class="card-title" style="color:red;">${list[i].price} $ 

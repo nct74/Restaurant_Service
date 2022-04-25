@@ -8,7 +8,7 @@ head
   link(rel='stylesheet' href='/css/homepage.css')
 
   title Order page
-.page.homePage
+.page.homePage(style="background-image: url(/img/bgorrder.jpg); background-repeat: no-repeat;background-size: cover; background-size: 1200px 100vh;")
   .container1
     .menu.col-md-8
       .logo
@@ -18,42 +18,42 @@ head
       .scroll
         #carouselExampleIndicators.carousel.slide(data-ride='carousel')
             .carousel-inner  
-                .carousel-item.active(style="margin-left:100px;")
+                .carousel-item.active(style="margin-left:100px; opacity: 0.95;")
                     .carousel-part    
                         .cardmenu.getdata( style=" margin-left:5px;", data-type="All of dish")
-                            img(src="/img/cake.png" alt='First slide' style="width: 80%;margin-left:12px;  ")
-                            h3(style="text-align:center;") All of dish
+                            img(src="/img/cake.png" alt='First slide' style="width: 90%;height:85px; margin-left:12px; margin-top:5px;  ")
+                            h3(style="text-align:center; ") All of dish
                         .cardmenu.getdata( style=" margin-left:20px;" , data-type=data1.type)
-                            img(src=data1.image alt='First slide' style="width: 80%; margin-left:12px;")
-                            h3(style="text-align:center;")=data1.name
+                            img(src=data1.image alt='First slide' style="width: 103px; height:85px;margin-left:12px;  margin-top:5px;")
+                            h3(style="text-align:center;")=data1.type
                         .cardmenu.getdata( style=" margin-left:20px;" , data-type=data2.type)
-                            img(src=data2.image alt='First slide' style="width: 80%;margin-left:12px;") 
-                            h3(style="text-align:center;")=data2.name
+                            img(src=data2.image alt='First slide' style="width: 103px;height:85px;margin-left:12px;  margin-top:5px;") 
+                            h3(style="text-align:center;")=data2.type
                         .cardmenu.getdata( style=" margin-left:20px;" , data-type=data3.type)
-                            img(src=data3.image alt='First slide' style="width: 80%;margin-left:12px;") 
-                            h3(style="text-align:center;")=data3.name
+                            img(src=data3.image alt='First slide' style="width: 103px;height:85px;margin-left:12px;  margin-top:5px;") 
+                            h3(style="text-align:center;")=data3.type
 
                 - var i = 0;          
                 each typeofdish in data
                     if(data[i])
-                        .carousel-item(style="margin-left:100px; float:left; ")
+                        .carousel-item(style="margin-left:100px; float:left; opacity: 0.95;")
                             if (data[i])
                                 .cardmenu.getdata( style=" margin-left:5px; float:left;  ",data-type=data[i].type)
-                                    img(src=data[i].image alt='First slide' style="width: 80%;margin-left:12px;" )
-                                    h3(style="text-align:center;")=data[i].name
+                                    img(src=data[i].image alt='First slide' style="width: 103px;height:85px;margin-left:12px;  margin-top:5px;" )
+                                    h3(style="text-align:center;")=data[i].type
 
                             if (data[i+1])
                                 .cardmenu.getdata( style=" margin-left:40px; float:left; ", data-type=data[i+1].type)
-                                    img(src=data[i+1].image alt='First slide' style="width: 80%;margin-left:12px;")
-                                    h3(style="text-align:center;")=data[i+1].name
+                                    img(src=data[i+1].image alt='First slide' style="width: 103px;height:85px;margin-left:12px;  margin-top:5px;")
+                                    h3(style="text-align:center;")=data[i+1].type
                             if (data[i+2])
                                 .cardmenu.getdata( style=" margin-left:40px; float:left; ", data-type=data[i+2].type)
-                                    img(src=data[i+2].image alt='First slide' style="width: 80%;margin-left:12px;" )
-                                    h3(style="text-align:center;")=data[i+2].name
+                                    img(src=data[i+2].image alt='First slide' style="width: 103px;height:85px;margin-left:12px;  margin-top:5px;" )
+                                    h3(style="text-align:center;")=data[i+2].type
                             if (data[i+3])
                                 .cardmenu.getdata( style=" margin-left:40px; float:left; ", data-type=data[i+3].type)
-                                    img(src=data[i+3].image alt='First slide' style="width: 80%;margin-left:12px;" )
-                                    h3(style="text-align:center;")=data[i+3].name
+                                    img(src=data[i+3].image alt='First slide' style="width: 103px;height:85px;margin-left:12px;  margin-top:5px;" )
+                                    h3(style="text-align:center;")=data[i+3].type
                     - i = i+4;  
             a.carousel-control-prev(href='#carouselExampleIndicators' role='button' data-slide='prev' )
                 span.carousel-control-prev-icon(aria-hidden='true' style="background-image: url(/img/backar.jpg)")
@@ -61,18 +61,18 @@ head
             a.carousel-control-next(href='#carouselExampleIndicators' role='button' data-slide='next')
                 span.carousel-control-next-icon(aria-hidden='true' style="background-image: url(/img/muiten.jpg)")
                 span.sr-only Next
-      .listdish(style="margin-top:30px;")
+      .listdish(style="margin-top:30px; opacity: 0.95;")
         .headerlishdish(style="height:30px;")
-            h1.titlelistdish(style="float:left;") All of dish
-            hr(style="text-align:right; float:right; width:80%; margin-top:15px;")
-        .bodylishdish(style="margin:20px 30px 0px 10px; overflow: scroll; height: 540px;")
+            h1.titlelistdish(style="float:left; font-weight: 900;") All of dish
+            hr(style="text-align:right; float:right; width:80%; margin-top:12px; height: 1px; background-color: black;")
+        .bodylishdish(style="margin:20px 30px 0px 10px; overflow: scroll; ")
             #ab.dishreal
                 each data in allofdata
                     .carddora
                         img.card-img-top(src=data.image alt='Card image cap')
                         .card-body-top
                             hr.hr-img-top
-                            h2.card-title=data.id + ". " +data.name
+                            h3.card-title=data.id + ". " +data.name
                             hr.hr-img-top
                             h2.card-text=data.price + " $"
                             button.card-text(data-price=data.price,data-image=data.image,data-name=data.name,data-info=data.info_detail, data-id=data.id)
@@ -89,7 +89,7 @@ head
             img(src='/img/cartt.png' alt='cart' style="float:left; width: 40px;border-radius: 10px;" )
             h3(style="font-size:25px; color:red;") &nbsp;  Your cart:
                 span  0
-        .bodySection(style="float:none; margin-top: 30px; height: 450px; overflow: scroll;")
+        .bodySection(style="float:none; margin-top: 30px; height: 500px; overflow: scroll;")
 
         hr(style='width:100%;text-align:left;margin-left:0')
         .paymentSection(style="boder-top: solid 1px black; ")

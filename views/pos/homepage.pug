@@ -8,16 +8,16 @@ html(lang='en')
     link(rel='stylesheet' href='/css/homepage.css')
     title Home page
   body
-    .page.homePage(style="background-image: url(/img/khachhang.png); background-repeat: no-repeat;background-size: cover; opacity: 0.8; ")
+    .page.homePage(style="background-image: url(/img/khachhang.png); background-repeat: no-repeat;background-size: cover; opacity: 0.9; ")
       .header
         .logo
           img(src='./img/restaurant-512.webp' alt='' srcset='' style="width:60px; float:left;")
-          span.logo-text Home
+          span.logo-text(style="color:white") Home
         .user-login
           a(href="login" style=" text-decoration: none;")
             span.login-btn Đăng nhập
-      .title
+      .title(style="color:white")
         | Xin chào quý khách!
       .btn-group
-        a.btn.greencolor(href='/order') Order
-        a.btn(href='/payment') Payment
+        a.btn.greencolor(href='/order' style="color:white; ") Order
+        a.btn(href='/payment' style="color:white") Payment
