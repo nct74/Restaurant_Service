@@ -17,7 +17,7 @@ $(document).ready(function () {
                       <img class="card-img-top" src=${list[i].image} alt='Card image cap' >
                       <div class="card-body-top" >
                           <hr class="hr-img-top">
-                          <h2 class="card-title">${list[i].id}.  ${list[i].name}
+                          <h3 class="card-title">${list[i].id}.  ${list[i].name}
                           <hr class="hr-img-top">
   
                           <h2 class="card-title" style="color:red;">${list[i].price} $ 
@@ -204,7 +204,11 @@ function copytext() {
   console.log(copyText.value);
 }
 function fireSweetAlert(data) {
-  Swal.fire({title:'<h2>Đây là mã đơn hàng của bạn:</h2>',  html:`<input style="border: 2px solid #E5E5E5 ; font-size:30px;border-radius: 25px; text-align: center; height: 60px; width: 320px;" type="text" value=${data} id="myInput"> <button style="background-color: #E5E5E5; height: 60px;width:120px; font-size:20px; border-radius: 25px;" onclick="copytext()">Copy text</button>`,  icon:'success' , width: '600px',confirmButtonText: '<h2 style="font-size:20px;">OK</h2>',});
+  Swal.fire({title:'<h2>Đây là mã đơn hàng của bạn:</h2>',  html:`<input style="border: 2px solid #E5E5E5 ; font-size:30px;border-radius: 25px; text-align: center; height: 60px; width: 320px;" type="text" value=${data} id="myInput"> <button style="background-color: #E5E5E5; height: 60px;width:120px; font-size:20px; border-radius: 25px;" onclick="copytext()">Copy text</button>`,  icon:'success' , width: '600px',confirmButtonText: '<h2 style="font-size:20px;">OK</h2>',}).then((result) => {
+    if (result['isConfirmed']){
+      window.location.href = "/payment";
+    }
+  });
 }
 function Minusinpayment(id, price) {
 
@@ -262,18 +266,20 @@ function Addinpayment(id,price) {
     function Payment() {
       var arrid = new Array();
       var arrquan = new Array();
+      let total = 0;
       let i = 0 ;
       while($(".foodcard")[i])
       {
+        
+         total = parseInt($(".paymentSection p").text());
         let con = parseInt($(".foodcard p").eq(i).attr('class'));
         let datacurrent = parseInt($(".foodcard h2").eq(i).text());
         arrid[i] = con;
         arrquan[i] = datacurrent;
         i++;
       }
-      $.post('/order/addOrder', {arrid: arrid, arrquan:arrquan}, function (data) {
-        var a = "aaa";
-        fireSweetAlert(a);
+      $.post('/order/addOrder', {arrid: arrid, arrquan:arrquan, total:total}, function (data) {
+        fireSweetAlert(data);
 
       })
     }

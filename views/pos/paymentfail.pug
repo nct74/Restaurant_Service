@@ -11,8 +11,9 @@ html(lang='en')
     .page.homePage.paymentfalied
       .header.paymentPage
         .logo
-          img(src='/img/backarrow.jpg' alt='' srcset='')
-          span.logo-text Back
+          a(href='/payment')
+            img(src='./img/backarrow.jpg' alt='' srcset='' style="display: inline;float:left;")
+            h1(style="display: inline; float:left; margin-left: 10px;") Back
         .payment
           span.paymenttitle Payment
       div
@@ -20,5 +21,5 @@ html(lang='en')
         | >
         .failedbtn
           .btn-group
-            a.button.greycolor(href='#') Retry
-            a.button.greenbanana(href='#') Change payment method
+            a.button.greycolor(href='/payment') Retry
+            a.button.greenbanana(href='/payment') Change payment method

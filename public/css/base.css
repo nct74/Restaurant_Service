@@ -34,6 +34,7 @@ html {
     width: 1200px;
     height: 100vh;
     background-color: rgba(255, 0, 0, 0.161);
+    
 }
 
 .page {
@@ -42,7 +43,8 @@ html {
     border: 1px solid black;
     width: 1200px;
     height: 100vh;
-    background-color: rgba(255, 0, 0, 0.161);
+    /* background-color: rgba(255, 0, 0, 0.161); */
+    
 }
 
 .firstPage-title {
@@ -148,9 +150,9 @@ flex-wrap: wrap;
 .login-form .card {
    background-color: #D1ECF8;
 }
-.login-form .cardnumber {
+/* .login-form .cardnumber {
     margin-top: 3rem;
- }
+ } */
 .login-form .double-input{
     margin: 3rem 0rem;
     display: flex;
@@ -263,6 +265,7 @@ color: #3794EB !important;
 }
 .page.paymentPage{
     background-color: #ffffff;
+    margin: auto;
 }
 .header .paymentPage{
     border: solid;
@@ -272,15 +275,19 @@ color: #3794EB !important;
     width: 70%;
     margin: auto;
 }
-
+.bodylishdish{
+    height: 660px;
+}
 
 @media screen and (max-width: 1200px){
     .firstPage, .page {
         width: 100%;
-        padding: 0 3rem;
     }
     .login .login-form {
         width: 80%;
+    }
+    .bodylishdish{
+        height: 500px;
     }
 }
 

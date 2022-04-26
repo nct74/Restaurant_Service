@@ -1,0 +1,62 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  link(rel='stylesheet' href='./css/base.css')
+  link(rel='stylesheet' href='./css/homepage.css')
+  title Payment page
+.page.homePage.paymentPage(style="background-image: url(/img/bgorrder.jpg); background-repeat: no-repeat;background-size: cover; background-size: 1200px 100vh; opacity:0.9")
+  .header.paymentPage
+    .logo
+      a(href='/order')
+        img(src='./img/backarrow.jpg' alt='' srcset='' style="display: inline;float:left;")
+        h1(style="display: inline; float:left; margin-left: 10px;") Back
+    .payment
+      span.paymenttitle Payment
+  .logopayment(style="opacity:0.8; margin-top:50px;")
+    .PaymentMethod.pay1
+        btn( onclick="openCity(1)")
+          img(src='./img/pay1.png' alt='' style="background: #E5E5E5" )
+    .PaymentMethod.pay2
+        btn( onclick="openCity(2)" )
+          img(src='./img/pay2.png' alt='' style="background: white" )
+    .PaymentMethod.pay3
+        btn( onclick="openCity(3)")
+          img(src='./img/pay3.png' alt='' style="background: white")
+  .dataCredit(style="opacity:0.9")
+    .Credit(style="display: block")
+      form.login-form.paymentform(action="/payment/addpayment" method="post")
+        .user-input.card.cardnumber
+          label(for='cardnumber') Mã Đơn hàng
+          input.username(type='text' name='orderId' )
+        .user-input.card.cardname
+          label(for='cardname') Tên 
+          input.username(type='text')
+        .user-input.card.cardnumber
+          label(for='cardnumber') Mã Số Thẻ
+          input.username(type='text')
+        .double-input
+          .user-input.card.ref
+            label(for='date') MM/YY
+            input.username(type='text')
+          .user-input.card.ref
+            label(for='cvv') CVV
+            input.username(type='text')
+        .paymentbtn-1(style="margin-left:25%;")
+          .btn-group(type='submit')
+            input.btn(type='submit' value="Pay now")
+    .ewallet(style="margin: auto; display:none;opacity:0.9")
+      h1(style="text-align:center; margin-top:10px; margin-bottom:10px; color: white") Quét mã Momo để thanh toán
+      a(href="/paymentss") 
+        img(src="/img/momo.png" style="display: block;margin: auto;")
+    .cash(style="margin: auto; display:none;opacity:0.9")
+      h1(style="text-align:center;color: white;margin-top:20px;") Bạn vui lòng đến quầy và thanh toán trực Tiếp
+        .paymentbtn-1(style="margin-left:25%;")
+          a(href='paymentss')
+            .btn( style="background: #ccc; margin-left: 50px;")
+              h1(style="text-align:center; font-size:25px; color:red;") Xác nhận thanh toán
+
+//- script(src='/plugins/jquery/jquery.min.js')
+
+script(src="/js/pos/payment.js") 

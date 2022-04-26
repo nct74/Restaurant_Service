@@ -1,9 +1,13 @@
+import { Order } from 'src/models/order.entity';
+import { Dish } from './dish.entity';
 import { Column, Entity, JoinColumn, ManyToOne, OneToOne, PrimaryColumn } from "typeorm";
-import { Dish } from "./dish.entity";
-import { Order } from "./order.entity";
+
 
 @Entity()
 export class Contain {
+	@Column()
+	quantity: number;
+
 	@ManyToOne((type) => Order, {
 		primary: true,
 		onDelete: "CASCADE",
@@ -20,6 +24,7 @@ export class Contain {
 	@JoinColumn()
 	dish: Dish;
 
-	@Column()
-	quantity: number;
+
+
+
 }

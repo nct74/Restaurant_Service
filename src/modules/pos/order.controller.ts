@@ -1,12 +1,15 @@
+import { Contain } from 'src/models/contain.entity';
 import { Order } from 'src/models/order.entity';
 
 import { DishService } from "src/services/dish.service";
 import { Controller, Get, Render, Post, Body, Res, UseGuards, Req } from "@nestjs/common";
 import { OrderService } from "src/services/order.service";
-import { Contain } from 'src/models/contain.entity';
+import { ContainService } from 'src/services/contain.service';
+
+
 @Controller("order")
 export class OrderController {
-	constructor(private dishService : DishService, private orderService : OrderService) { }
+	constructor(private dishService : DishService, private orderService : OrderService , private containService: ContainService) { }
 	@Get()
 	@Render("pos/orderpage")
 	async index() {
@@ -44,25 +47,23 @@ export class OrderController {
         return viewBag;
     }
     @Post('/addOrder')
-    async addOrder(@Body('arrid') arrid: Array<void>,@Body('arrquan') arrquan: Array<void>) {
+    async addOrder(@Body('arrid') arrid: Array<number>,@Body('arrquan') arrquan: Array<number>,@Body('total') total: number) {
         // create new Order
         // ADD data in contain
         // => go to page payment
         var newOrder = new Order();
+        newOrder.total = total;
         newOrder.id =Math.floor(1000000 + Math.random() * 9000000);
         var getbyID = await this.orderService.getByOrderId(newOrder.id);
         while(getbyID){
             newOrder.id = Math.floor(1000000 + Math.random() * 9000000);
             getbyID = await this.orderService.getByOrderId(newOrder.id);
         }
+        await this.orderService.add(newOrder); 
         for(var i = 0 ; i < arrid.length ; i++){
-            var newContain = new Contain();
-            // newContain.orderId = newOrder.id;
-            // newContain.dishId = (arrid[i]);
-            await this.orderService.add(newOrder);
+            await this.containService.addnewcontain(newOrder.id,arrid[i],arrquan[i]);
         }
-        await this.orderService.add(newOrder);    
-        console.log(arrid);
-        console.log(arrquan);
+           
+        return newOrder.id;
     }
 }

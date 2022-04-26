@@ -4,7 +4,8 @@
     border: 1px solid black;
     width: 1200px;
     height: 100vh;
-    background-color: #D1ECF8;
+    /* background-color: #D1ECF8; */
+
     padding: 0px 0px 0px 0px;
 }
 
@@ -47,28 +48,27 @@ line-height: 59px;
 text-align: center;
 margin-right: 50rem;
 }
-.logopayment {
-    display: inline-block;
 
-}
-.logopayment img {
-    width: 20%;
-}
+
 
 .logopayment {
+display: inline-block;
 font-family: 'Roboto';
 font-style: normal;
 font-weight: 400;
 font-size: 50px;
 line-height: 59px;
 text-align: center;
-padding: 3rem auto;
+margin-left : 180px;
+
+
 }
 
 .homePage .cart{
 
     height: 958px;
     background-color: #ffffff;
+    opacity: 0.8;
 }
 .homePage .user-login{
     padding: 1rem 0 0;
@@ -122,7 +122,8 @@ padding: 1rem 5rem;
 color: black;
 }
 .btn.greencolor {
-    background-color: green;
+    background-color: rgb(8, 146, 8);
+    opacity: 0.8;
 }
 .btn.yelowcolor {
     background-color: #FFE600;
@@ -149,9 +150,9 @@ color: black;
     cursor: pointer;
   }
 .paymentsuccess{
-    background-image: url(/img/failed.jpg);
+    background-image: url(/img/payss.png);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover; 
 }
 .paymentfalied{
     background-image: url(/img/failed.jpg);
@@ -185,13 +186,15 @@ color: black;
 .container1{
     border: 1px solid black;
     width: 1200px;
+    height:100vh;
     padding: 0px 0px 0px 0px;
     margin-left: 0px;
     display: flex;
     flex-direction:row;
     gap: 0rem;
     padding-top: 0px;
-    background-color: #D1ECF8;
+    
+    
 
 }
 .container.dish{
@@ -239,6 +242,9 @@ color: black;
 hr.hr-img-top{
     width: 100%;
 }
+h3.card-title{
+    margin-left: 7px;;
+}
 h2.card-title{
     margin-left: 7px;;
 }
@@ -253,4 +259,19 @@ button.card-text{
 }
 .img-button-card{
     float:left; width: 40px;border-radius: 10px;
+}
+.PaymentMethod{
+    margin: auto;
+    display: inline;
+    /* background-color: red; */
+    /* height: 207px; */
+
+}
+.PaymentMethod img{
+    /* background-color: red; */
+    width: 280px;
+    height: 207px;
+}
+.greencolor:hover {
+    background: rgb(5, 120, 5);
 }
