@@ -7,4 +7,5 @@ export declare class OrderService {
     add(order: Order): Promise<void>;
     getByOrderId(id: number): Promise<Order>;
     delete(order: Order): Promise<void>;
+    update(id: number, user: Order): Promise<void>;
 }

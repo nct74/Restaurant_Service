@@ -33,6 +33,9 @@ let OrderService = class OrderService {
     async delete(order) {
         await this.orderRepository.delete(order.id);
     }
+    async update(id, user) {
+        await this.orderRepository.update(id, user);
+    }
 };
 OrderService = __decorate([
     (0, common_1.Injectable)(),

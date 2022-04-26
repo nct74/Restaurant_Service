@@ -30,8 +30,10 @@ let PaymentController = class PaymentController {
         newPayment.order = data.orderId;
         newPayment.method = "1";
         newPayment.status = true;
-        var getbyID = await this.orderService.getByOrderId(data.orderId);
-        if (getbyID) {
+        var ordergetbyID = await this.orderService.getByOrderId(data.orderId);
+        if (ordergetbyID) {
+            ordergetbyID.orderStatus = true;
+            await this.orderService.update(ordergetbyID.id, ordergetbyID);
             await this.paymentService.add(newPayment);
             return res.redirect("/paymentss");
         }

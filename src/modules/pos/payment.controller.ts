@@ -7,24 +7,26 @@ import { Response } from 'express';
 import { OrderService } from "src/services/order.service";
 @Controller("payment")
 export class PaymentController {
-    constructor( private paymentService: PaymentService , private orderService : OrderService ) { }
+    constructor(private paymentService: PaymentService, private orderService: OrderService) { }
     @Get()
-	@Render("pos/payment")
-	async index() {
+    @Render("pos/payment")
+    async index() {
     }
     @Post('/addpayment')
-    async getAll(@Body() data: any,@Res() res: Response) {
+    async getAll(@Body() data: any, @Res() res: Response) {
         console.log(data.orderId);
         var newPayment = new Payment();
-        newPayment.order =data.orderId;
+        newPayment.order = data.orderId;
         newPayment.method = "1";
-        newPayment.status	 = true;
-        var getbyID = await this.orderService.getByOrderId(data.orderId);
-        if(getbyID) {
+        newPayment.status = true;
+        var ordergetbyID = await this.orderService.getByOrderId(data.orderId);
+        if (ordergetbyID) {
+            ordergetbyID.orderStatus = true;
+            await this.orderService.update(ordergetbyID.id, ordergetbyID);
             await this.paymentService.add(newPayment);
             return res.redirect("/paymentss");
         }
-        else{
+        else {
             return res.redirect("/paymentfail");
         }
 

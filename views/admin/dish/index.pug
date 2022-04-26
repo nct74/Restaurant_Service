@@ -82,16 +82,16 @@ block content
                       th Thao tác
                   tbody 
                     each dish, index in dishList
-                      tr.text-center(style="height:300px; line-height:300px; white-space: nowrap;")
-                        td= index + 1
-                        td= dish.name
-                        td= dish.price
-                        td= dish.info_detail
-                        td= dish.type
-                        td 
+                      tr.text-center
+                        td(style="vertical-align: middle;")= index + 1
+                        td(style="vertical-align: middle;")= dish.name
+                        td(style="vertical-align: middle;")= dish.price
+                        td(style="vertical-align: middle;")= dish.info_detail
+                        td(style="vertical-align: middle;")= dish.type
+                        td(style="vertical-align: middle;")
                             //- img(src='upload/milktea.png', alt='Image', width="500", height="600")
                             img(src= dish.image, alt='Image', height="300")
-                        td.text-center
+                        td.text-center(style="vertical-align: middle;")
                           btn.btn-edit.btn.btn-primary.btn-xs(style="margin-right: 5px", data-id = dish.id, data-name = dish.name, data-price = dish.price, data-info_detail = dish.info_detail, data-type=dish.type, data-image=dish.image)
                             i.fas.fa-edit
                           btn.btn-delete.btn.btn-danger.btn-xs(style="margin-right: 5px", data-id = dish.id)
