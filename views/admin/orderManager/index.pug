@@ -27,7 +27,7 @@ block content
                   thead
                     tr.text-center
                       th STT
-                      th Chú thích
+                      th Mã đơn hàng
                       th Số tiền 
                       th Trạng thái
                       th Thời gian
@@ -36,7 +36,7 @@ block content
                     each orderManager, index in orderManagerList
                       tr.text-center
                         td= index + 1
-                        td= orderManager.note
+                        td= orderManager.id
                         td= orderManager.total
                         if orderManager.orderStatus === true
                             td= "Đã thanh toán"
