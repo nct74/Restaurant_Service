@@ -37,3 +37,13 @@ INSERT INTO `user` (`username`, `password`, `cccd`, `role`, `createAt`, `updateA
 ('admin2', 'admin2', '12345', 1, '2022-04-11 15:12:47.000000', '2022-04-11 15:12:47.000000'),
 ('staff1', 'staff1', '12345', 0, '2022-04-11 15:12:47.000000', '2022-04-11 15:12:47.000000'),
 ('staff2', 'staff2', '11245', 0, '2022-04-11 15:12:47.000000', '2022-04-11 15:12:47.000000');
+
+INSERT INTO `order`(`id`, `note`, `total`, `orderStatus`, `time`, `createAt`, `updateAt`) VALUES (1,'Ahihi', 60000, false, now(), now(), now());
+INSERT INTO `order`(`id`, `note`, `total`, `orderStatus`, `time`, `createAt`, `updateAt`) VALUES (2,'Do Ngoc', 6760000, true, now(), now(), now());
+INSERT INTO `order`(`id`, `note`, `total`, `orderStatus`, `time`, `createAt`, `updateAt`) VALUES (3,'NCT', 90000, false, now(), now(), now());
+
+INSERT INTO `contain`(`orderId`, `dishId`, `quantity`) VALUES (1,9,3);
+INSERT INTO `contain`(`orderId`, `dishId`, `quantity`) VALUES (1,10,2);
+INSERT INTO `contain`(`orderId`, `dishId`, `quantity`) VALUES (1,11,2);
+INSERT INTO `contain`(`orderId`, `dishId`, `quantity`) VALUES (2,11,2);
+INSERT INTO `contain`(`orderId`, `dishId`, `quantity`) VALUES (3,9,2);

@@ -42,7 +42,7 @@ block content
                             td= "Đã thanh toán"
                         else if orderManager.orderStatus === false
                             td= "Chưa thanh toán"
-                        td= moment(orderManager.time).subtract(10, 'days').calendar()
+                        td= moment(orderManager.createAt).subtract(10, 'days').calendar()
                         td.text-center
                             btn.btn-detail.btn.btn-danger.btn-xs(style="margin-right: 5px", data-order-id = orderManager.id data-stt = index+1, data-total = orderManager.total, data-order-status = orderManager.orderStatus===true?1:0, data-time = moment(orderManager.time).subtract(10, 'days').calendar())
                                 i.fas.fa-history
