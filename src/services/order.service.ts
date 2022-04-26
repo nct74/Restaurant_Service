@@ -24,4 +24,8 @@ export class OrderService {
 	async delete(order: Order): Promise<void> {
 		await this.orderRepository.delete(order.id);
 	}
+
+	async update(id: number, user: Order): Promise<void> { //google.strategy call
+		await this.orderRepository.update(id, user);
+	}
 }
