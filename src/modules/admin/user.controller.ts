@@ -11,8 +11,8 @@ import { RoleGuard } from 'src/guards/roles.guard';
 export class UserController {
 	constructor(private userService: UserService) { }
 	@Get()
-	// @Roles(UserRole.ADMIN)
-	// @UseGuards(AuthGuard('jwt'), RoleGuard)
+	@Roles(UserRole.ADMIN)
+	@UseGuards(AuthGuard('jwt'), RoleGuard)
 	@Render("admin/user/index")
 	async index() {
 		const userList = await this.userService.getAll();
@@ -23,8 +23,8 @@ export class UserController {
 	}
 
 	@Post("add")
-	// @Roles(UserRole.ADMIN)
-	// @UseGuards(AuthGuard('jwt'), RoleGuard)
+	@Roles(UserRole.ADMIN)
+	@UseGuards(AuthGuard('jwt'), RoleGuard)
 	async add(@Body() user: User, @Res() res: Response) {
 		const salt = await bcrypt.genSalt(15);
 		user.password = await bcrypt.hash(user.password, salt);
@@ -33,8 +33,8 @@ export class UserController {
 	}
 
 	@Post("edit")
-	// @Roles(UserRole.ADMIN)
-	// @UseGuards(AuthGuard('jwt'), RoleGuard)
+	@Roles(UserRole.ADMIN)
+	@UseGuards(AuthGuard('jwt'), RoleGuard)
 	async edit(@Body() user: any, @Res() res: Response) {
 		var userToEdit: User = new User();
 		userToEdit.username = user.username;
@@ -49,8 +49,8 @@ export class UserController {
 	}
 
 	@Post("delete")
-	// @Roles(UserRole.ADMIN)
-	// @UseGuards(AuthGuard('jwt'), RoleGuard)
+	@Roles(UserRole.ADMIN)
+	@UseGuards(AuthGuard('jwt'), RoleGuard)
 	async delete(@Body() user: any, @Res() res: Response) {
 		//console.log("Delete");
 		await this.userService.delete(user);
