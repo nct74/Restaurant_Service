@@ -32,11 +32,11 @@ INSERT INTO `dish` (`id`, `name`, `price`, `info_detail`, `image`, `type`, `crea
 (44, 'Ép thơm', 25000, 'Ép thơm thơm ngon bổ dưỡng mời bạn ăn nha', 'upload/nuocep4-1650901897341.png', 'Nước ép', '2022-04-25 22:51:37.365870', '2022-04-25 22:51:37.365870'),
 (45, 'Ép bưởi', 25000, 'Ép bưởi thơm ngon bổ dưỡng mời bạn ăn nha', 'upload/nuocep5-1650901927342.png', 'Nước ép', '2022-04-25 22:52:07.345393', '2022-04-25 22:52:07.345393');
 
-INSERT INTO `user` (`username`, `password`, `cccd`, `role`, `createAt`, `updateAt`) VALUES
-('admin1', 'admin1', '12345', 1, '2022-04-11 15:12:47.000000', '2022-04-11 15:12:47.000000'),
-('admin2', 'admin2', '12345', 1, '2022-04-11 15:12:47.000000', '2022-04-11 15:12:47.000000'),
-('staff1', 'staff1', '12345', 0, '2022-04-11 15:12:47.000000', '2022-04-11 15:12:47.000000'),
-('staff2', 'staff2', '11245', 0, '2022-04-11 15:12:47.000000', '2022-04-11 15:12:47.000000');
+-- INSERT INTO `user` (`username`, `password`, `cccd`, `role`, `createAt`, `updateAt`) VALUES
+-- ('admin1', 'admin1', '12345', 1, '2022-04-11 15:12:47.000000', '2022-04-11 15:12:47.000000'),
+-- ('admin2', 'admin2', '12345', 1, '2022-04-11 15:12:47.000000', '2022-04-11 15:12:47.000000'),
+-- ('staff1', 'staff1', '12345', 0, '2022-04-11 15:12:47.000000', '2022-04-11 15:12:47.000000'),
+-- ('staff2', 'staff2', '11245', 0, '2022-04-11 15:12:47.000000', '2022-04-11 15:12:47.000000');
 
 INSERT INTO `order`(`id`, `note`, `total`, `orderStatus`, `time`, `createAt`, `updateAt`) VALUES (1,'Ahihi', 60000, false, now(), now(), now());
 INSERT INTO `order`(`id`, `note`, `total`, `orderStatus`, `time`, `createAt`, `updateAt`) VALUES (2,'Do Ngoc', 6760000, true, now(), now(), now());
