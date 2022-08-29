@@ -1,10 +1,10 @@
 {
-	"type": "mysql",
-	"host": "localhost",
-	"port": 3306,
-	"username": "root",
-	"password": "",
-	"database": "se_restaurant",
-	"entities": ["dist/**/*.entity{.ts,.js}"],
-	"synchronize": true
+    "type": "mysql",
+    "host": "us-cdbr-east-05.cleardb.net",
+    "port": 3306,
+    "username": "b56021cdf5126f",
+    "password": "234587d1",
+    "database": "heroku_a4e4863d3d463ee",
+    "entities": ["dist/**/*.entity{.ts,.js}"],
+    "synchronize": true
   }
